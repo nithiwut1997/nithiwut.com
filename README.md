@@ -196,16 +196,98 @@ Future enhancement:
 
 ## Platform
 
-- Cloudflare Pages
+- Next.js static export
+- GitHub Actions
+- AWS S3 private bucket
+- Amazon CloudFront CDN
+- CloudFront Origin Access Control (OAC)
 
-## Domain
+## Architecture
 
-- nithiwut.com
+```text
+GitHub Actions
+  -> npm ci
+  -> npm run build
+  -> out/
+  -> aws s3 sync
+  -> private S3 bucket
+  -> CloudFront distribution with OAC
+  -> nithiwut.com
+```
 
-## CI/CD
+The S3 bucket must remain private. Do not enable public S3 website hosting. Keep S3 Block Public Access enabled and serve the site only through CloudFront using Origin Access Control.
 
-- GitHub integration
-- Automatic deployments from `main`
+## Next.js Static Export
+
+The project uses `output: "export"` in `next.config.ts`. Production builds generate the static site in:
+
+```bash
+out/
+```
+
+Build locally:
+
+```bash
+npm run build
+```
+
+## GitHub Actions
+
+Deployment workflow:
+
+```bash
+.github/workflows/deploy-s3.yml
+```
+
+The workflow runs on pushes to `main` and can also be started manually from GitHub Actions.
+
+Required repository secrets:
+
+```bash
+AWS_DEPLOY_ROLE_ARN
+AWS_S3_BUCKET
+AWS_CLOUDFRONT_DISTRIBUTION_ID
+```
+
+The workflow uses GitHub OIDC to assume the AWS deployment role, builds the static export, syncs `out/` to S3, and optionally creates a CloudFront invalidation.
+
+The workflow defaults to `ap-southeast-1` in `.github/workflows/deploy-s3.yml`. Change `AWS_REGION` there if the deployment bucket is in a different region.
+
+## AWS Resource Notes
+
+- S3 bucket: private bucket with Block Public Access enabled.
+- CloudFront origin: S3 REST origin, not S3 website endpoint.
+- CloudFront access: Origin Access Control attached to the S3 origin.
+- CloudFront default root object: `index.html`.
+- Domain: attach `nithiwut.com` to CloudFront with an ACM certificate in `us-east-1`.
+- Bucket policy: allow `s3:GetObject` only from the CloudFront distribution ARN through OAC.
+- GitHub OIDC role trust: restrict role assumption to this repository and the `main` branch.
+
+Example S3 bucket policy shape:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCloudFrontServicePrincipalReadOnly",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudfront::YOUR_AWS_ACCOUNT_ID:distribution/YOUR_DISTRIBUTION_ID"
+        }
+      }
+    }
+  ]
+}
+```
+
+The deployment role should have permission to sync objects to the target S3 bucket and create invalidations for the configured CloudFront distribution.
 
 ---
 
