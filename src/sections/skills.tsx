@@ -10,10 +10,10 @@ export function Skills() {
           <SectionHeading
             eyebrow="Skills"
             title="Practical tools for production systems."
-            description="A focused stack for building, shipping, and operating backend-heavy products."
+            description="A backend and cloud-first stack with enough frontend range to deliver full-stack product features."
           />
           <p className="max-w-sm text-sm leading-7 text-zinc-500">
-            Strongest fit: backend-heavy product teams, cloud-native delivery, marketplace workflows, and systems that need careful production ownership.
+            Strongest fit: backend-heavy or full-stack product teams where cloud-native delivery, marketplace workflows, and production ownership matter.
           </p>
         </div>
 

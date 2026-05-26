@@ -9,8 +9,8 @@ export function About() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeading
             eyebrow="About"
-            title="Backend engineering for systems that need to stay reliable."
-            description="Builds production backend systems across banking and startup environments, with a practical focus on scalable APIs, async workflows, and cross-functional delivery."
+            title="Backend and cloud depth, with full-stack range."
+            description="Builds production systems across banking and startup environments. Comfortable contributing across the stack, while strongest in scalable APIs, async workflows, cloud delivery, and reliable operations."
           />
 
           <div className="grid gap-4">

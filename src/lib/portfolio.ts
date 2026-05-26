@@ -2,9 +2,9 @@ export const profile = {
   name: "Nithiwut Wilainuch",
   role: "Senior Software Engineer / Squad Lead",
   location: "Bangkok, Thailand",
-  focus: "Scalable backend systems for banking and marketplace platforms",
+  focus: "Full-stack capable, with a backend and cloud engineering focus",
   summary:
-    "Senior Software Engineer with 5+ years of experience building scalable backend systems in banking and startup environments. Currently working at TTB bank on a used-car marketplace platform, with responsibility across seller onboarding, vehicle inspection workflows, internal administration systems, and production support.",
+    "Senior Software Engineer with 5+ years of experience building scalable systems in banking and startup environments. Open to full-stack product work, with strongest focus on backend services, cloud-native delivery, marketplace workflows, and production support.",
 };
 
 export const contact = {
@@ -54,6 +54,7 @@ export const heroStats = [
 export const strengths = [
   "Designs scalable RESTful APIs and backend services for seller onboarding, car listing, inspection status, and marketplace operations.",
   "Builds reliable production workflows with Java Spring Boot, AWS services, asynchronous processing, Kubernetes support, and CI/CD delivery.",
+  "Contributes across the full stack when needed, including React and Next.js UI work, while keeping backend reliability and cloud operations as the main depth.",
   "Works closely with business, operations, data, and engineering teams to clarify requirements, support campaigns, and improve system behavior.",
 ];
 
