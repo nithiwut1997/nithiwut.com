@@ -54,7 +54,7 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <LinkButton href="/resume.pdf" download>
+            <LinkButton href="/Nithiwut_Wilainuch_Resume.pdf" download>
               Download resume
             </LinkButton>
             <LinkButton href="#projects" variant="secondary">

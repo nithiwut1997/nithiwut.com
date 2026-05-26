@@ -10,21 +10,29 @@ export function ResumeCta() {
       <Container>
         <div className="rounded-lg border border-white/10 bg-panel-strong/[0.9] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase text-emerald-300">Resume</p>
+            <p className="text-sm font-semibold uppercase text-emerald-300">
+              Resume
+            </p>
             <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
               Full resume available as a PDF.
             </h2>
             <p className="mt-5 text-base leading-8 text-zinc-400">
-              The web page now mirrors the resume content. Keep the PDF download for a compact recruiter-friendly version and future S3 plus CloudFront hosting.
+              The web page now mirrors the resume content. Keep the PDF download
+              for a compact recruiter-friendly version and future S3 plus
+              CloudFront hosting.
             </p>
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-0">
-            <LinkButton href="/resume.pdf" download>
+            <LinkButton href="/Nithiwut_Wilainuch_Resume.pdf" download>
               Download PDF
             </LinkButton>
             {linkedIn ? (
-              <LinkButton href={linkedIn.href} target="_blank" variant="secondary">
+              <LinkButton
+                href={linkedIn.href}
+                target="_blank"
+                variant="secondary"
+              >
                 LinkedIn
               </LinkButton>
             ) : null}

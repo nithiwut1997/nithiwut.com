@@ -1,5 +1,4 @@
 import { Container } from "@/components/container";
-// import { LinkButton } from "@/components/link-button";
 import { navItems } from "@/lib/portfolio";
 
 export function SiteHeader() {
@@ -28,14 +27,6 @@ export function SiteHeader() {
             </a>
           ))}
         </nav>
-
-        {/* <LinkButton
-          href="/resume.pdf"
-          variant="secondary"
-          className="hidden px-4 sm:inline-flex"
-        >
-          Resume
-        </LinkButton> */}
       </Container>
     </header>
   );
