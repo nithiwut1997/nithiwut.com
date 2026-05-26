@@ -10,7 +10,7 @@ export function About() {
           <SectionHeading
             eyebrow="About"
             title="Backend engineering for systems that need to stay reliable."
-            description="Nithiwut builds production backend systems across banking and startup environments, with a practical focus on scalable APIs, async workflows, and cross-functional delivery."
+            description="Builds production backend systems across banking and startup environments, with a practical focus on scalable APIs, async workflows, and cross-functional delivery."
           />
 
           <div className="grid gap-4">
