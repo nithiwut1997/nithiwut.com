@@ -79,8 +79,8 @@ jobs:
 
       - name: Deploy resume PDF to S3
         run: |
-          if [ -f out/resume.pdf ]; then
-            aws s3 cp out/resume.pdf "s3://${S3_BUCKET}/resume.pdf" \
+          if [ -f out/Nithiwut_Wilainuch_Resume.pdf ]; then
+            aws s3 cp out/Nithiwut_Wilainuch_Resume.pdf "s3://${S3_BUCKET}/Nithiwut_Wilainuch_Resume.pdf" \
               --only-show-errors \
               --cache-control "public,max-age=3600,must-revalidate" \
               --content-type "application/pdf"
