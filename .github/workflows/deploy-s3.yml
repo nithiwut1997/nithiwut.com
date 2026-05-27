@@ -77,15 +77,6 @@ jobs:
             --cache-control "public,max-age=0,must-revalidate" \
             --content-type "text/html; charset=utf-8"
 
-      - name: Deploy resume PDF to S3
-        run: |
-          if [ -f out/Nithiwut_Wilainuch_Resume.pdf ]; then
-            aws s3 cp out/Nithiwut_Wilainuch_Resume.pdf "s3://${S3_BUCKET}/Nithiwut_Wilainuch_Resume.pdf" \
-              --only-show-errors \
-              --cache-control "public,max-age=3600,must-revalidate" \
-              --content-type "application/pdf"
-          fi
-
       - name: Invalidate CloudFront cache
         if: env.CLOUDFRONT_DISTRIBUTION_ID != ''
         run: |

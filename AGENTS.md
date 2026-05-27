@@ -112,15 +112,14 @@ Avoid:
 
 ## Resume
 
-Resume file location:
+Resume PDF generation:
 
 ```bash
-/public/resume.pdf
+src/data/resume.ts
+src/lib/generateResumePdf.ts
 ```
 
-Future enhancement:
-
-- Resume served from AWS S3 + CloudFront
+The site generates the resume client-side from structured data. Do not store or serve a static resume PDF file.
 
 ---
 

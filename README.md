@@ -71,7 +71,7 @@ Currently working on large-scale used-car marketplace systems within the banking
 - Modern responsive portfolio
 - Premium dark-mode UI
 - Smooth page animations
-- Downloadable resume
+- Client-side generated resume PDF
 - Project showcase
 - Experience timeline
 - Technical skills overview
@@ -117,7 +117,7 @@ Featured engineering and personal projects.
 
 ## Resume
 
-Downloadable PDF resume.
+Generated PDF resume.
 
 ## Contact
 
@@ -129,15 +129,19 @@ Downloadable PDF resume.
 
 # Resume
 
-Resume file location:
+The resume PDF is generated client-side from structured TypeScript data:
 
 ```bash
-/public/resume.pdf
+src/data/resume.ts
 ```
 
-Future enhancement:
+PDF layout logic lives in:
 
-- Move resume hosting to AWS S3 + CloudFront
+```bash
+src/lib/generateResumePdf.ts
+```
+
+The site does not require or serve a static resume PDF file.
 
 ---
 

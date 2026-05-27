@@ -1,0 +1,130 @@
+import type { ResumeData } from "@/types/resume";
+
+export const resumeData: ResumeData = {
+  name: "Nithiwut Wilainuch",
+  title: "Senior Software Engineer / Squad Lead",
+  location: "Bangkok, Thailand",
+  email: "nithiwut.w@gmail.com",
+  phone: "088-607-9220",
+  linkedIn: {
+    label: "LinkedIn",
+    value: "linkedin.com/in/nithiwut-wilainuch-a90152179",
+    href: "https://linkedin.com/in/nithiwut-wilainuch-a90152179",
+  },
+  portfolio: {
+    label: "Portfolio",
+    value: "nithiwut.com",
+    href: "https://nithiwut.com",
+  },
+  summary:
+    "Senior Software Engineer with 5+ years of experience building scalable backend systems in banking and startup environments. Currently working at TTB bank on a used-car marketplace platform, responsible for seller onboarding, vehicle inspection workflows, and internal administration systems. Experienced in Java Spring Boot, AWS cloud services, asynchronous workflows, CI/CD pipelines, Kubernetes environments, and production support, with a strong focus on system reliability, scalable API development, and cross-functional collaboration.",
+  skills: [
+    {
+      title: "Languages",
+      items: ["Java 11-21", "Python", "TypeScript"],
+    },
+    {
+      title: "Backend & Frameworks",
+      items: ["Spring Boot", "Django", "Node.js", "RESTful APIs"],
+    },
+    {
+      title: "Cloud & DevOps",
+      items: [
+        "AWS Lambda",
+        "API Gateway",
+        "S3",
+        "SQS",
+        "Aurora",
+        "Docker",
+        "Jenkins",
+        "GitLab CI/CD",
+        "Kubernetes",
+      ],
+    },
+    {
+      title: "Databases & Search",
+      items: ["MySQL", "PostgreSQL", "Redis", "Elasticsearch"],
+    },
+    {
+      title: "Frontend",
+      items: ["React", "Next.js"],
+    },
+  ],
+  experience: [
+    {
+      company: "TTB bank",
+      role: "Senior Software Engineer",
+      location: "Bangkok",
+      period: "Apr 2023 - Present",
+      highlights: [
+        "Developed backend services for a used-car marketplace platform, allowing users to list and browse vehicles through a public website.",
+        "Designed and implemented seller onboarding workflows, including seller information submission and verification processes.",
+        "Implemented vehicle inspection workflows required before cars can be published on the platform.",
+        "Built and maintained RESTful APIs supporting car listing, inspection status, and seller-related operations.",
+        "Developed internal administration systems for managing marketing configurations, banners, and platform content settings.",
+        "Improved search performance and user experience using Redis caching and Elasticsearch indexing.",
+        "Implemented asynchronous workflows using AWS SQS for background task processing and workflow handling.",
+        "Supported production systems in Kubernetes environments, including monitoring services, investigating issues, and troubleshooting deployments.",
+        "Coordinated with business and operations teams to support campaign configurations and platform enhancements.",
+        "Investigated production issues, identified root causes, and applied fixes to improve system stability and reliability.",
+        "Worked with CI/CD pipelines and deployment processes to release changes across multiple environments.",
+      ],
+      technologies: [
+        "Java",
+        "Spring Boot",
+        "AWS SQS",
+        "Redis",
+        "Elasticsearch",
+        "Kubernetes",
+        "CI/CD",
+      ],
+    },
+    {
+      company: "Purple Ventures Company Limited",
+      role: "Software Engineer",
+      location: "Bangkok",
+      period: "May 2021 - Mar 2023",
+      highlights: [
+        "Developed backend services using Java, Python, and AWS serverless technologies.",
+        "Delivered multiple features across several production software releases.",
+        "Migrated deployment workflows from manual zip-based deployment to automated CI/CD pipelines.",
+        "Containerized services using Docker and Jenkins pipelines.",
+        "Developed internal promotion code verification services used by call center teams.",
+        "Collaborated with data teams to build reporting services and automated email reporting systems.",
+        "Supported production systems and collaborated with cross-functional teams to resolve operational issues.",
+      ],
+      technologies: ["Java", "Python", "AWS Serverless", "Docker", "Jenkins"],
+    },
+    {
+      company: "Institute of Public Policy and Development",
+      role: "Backend Developer",
+      location: "Bangkok",
+      period: "Jun 2020 - Apr 2021",
+      highlights: [
+        "Developed backend services using Django and PostgreSQL.",
+        "Built frontend components using React and Next.js based on UI/UX designs.",
+        "Worked on ETL-related tasks and maintained data pipelines.",
+        "Coordinated with team members to ensure data accuracy and system stability.",
+      ],
+      technologies: ["Django", "PostgreSQL", "React", "Next.js", "ETL"],
+    },
+  ],
+  leadership: [
+    "Supported backend technical leadership within the squad, contributing to technical discussions, delivery coordination, and production support activities.",
+    "Reviewed code and provided feedback to improve code quality and engineering consistency.",
+    "Helped onboard new team members by explaining system architecture, development workflows, and project setup.",
+    "Collaborated with business and operations teams to clarify requirements and system behavior.",
+  ],
+  education: {
+    degree: "Bachelor of Engineering (Computer Engineering)",
+    school: "Chulalongkorn University",
+    location: "Bangkok",
+    details: [
+      "Senior Project: License Plate Recognition Using Deep Learning.",
+      "Prepared and labeled image datasets for license plate detection model training.",
+      "Implemented license plate detection using YOLO with transfer learning techniques.",
+      "Built a recognition pipeline using Python and Keras.",
+      "Deployed the service on Google Cloud Run using container-based deployment.",
+    ],
+  },
+};

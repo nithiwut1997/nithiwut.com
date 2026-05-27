@@ -1,5 +1,6 @@
 import { Container } from "@/components/container";
 import { LinkButton } from "@/components/link-button";
+import { ResumeDownloadButton } from "@/components/resume-download-button";
 import { contactLinks, heroStats, profile, socialLinks } from "@/lib/portfolio";
 
 const currentWorkflows = [
@@ -54,9 +55,9 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <LinkButton href="/Nithiwut_Wilainuch_Resume.pdf" download>
+            <ResumeDownloadButton>
               Download resume
-            </LinkButton>
+            </ResumeDownloadButton>
             <LinkButton href="#projects" variant="secondary">
               View projects
             </LinkButton>

@@ -1,5 +1,6 @@
 import { Container } from "@/components/container";
 import { LinkButton } from "@/components/link-button";
+import { ResumeDownloadButton } from "@/components/resume-download-button";
 import { socialLinks } from "@/lib/portfolio";
 
 export function ResumeCta() {
@@ -14,19 +15,18 @@ export function ResumeCta() {
               Resume
             </p>
             <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
-              Full resume available as a PDF.
+              Generate the latest resume as a PDF.
             </h2>
             <p className="mt-5 text-base leading-8 text-zinc-400">
-              The web page now mirrors the resume content. Keep the PDF download
-              for a compact recruiter-friendly version and future S3 plus
-              CloudFront hosting.
+              The PDF is generated from structured resume data in the codebase,
+              so content can be updated without maintaining a static file.
             </p>
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-0">
-            <LinkButton href="/Nithiwut_Wilainuch_Resume.pdf" download>
+            <ResumeDownloadButton>
               Download PDF
-            </LinkButton>
+            </ResumeDownloadButton>
             {linkedIn ? (
               <LinkButton
                 href={linkedIn.href}
