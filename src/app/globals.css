@@ -34,6 +34,11 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+section[id],
+footer[id] {
+  scroll-margin-top: 7rem;
+}
+
 ::selection {
   background: rgba(52, 211, 153, 0.32);
   color: #ffffff;

@@ -28,6 +28,25 @@ export function SiteHeader() {
           ))}
         </nav>
       </Container>
+
+      <div className="border-t border-white/10 md:hidden">
+        <Container className="overflow-x-auto py-2">
+          <nav
+            className="flex min-w-max items-center gap-2"
+            aria-label="Mobile navigation"
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-lg border border-white/10 bg-white/[0.035] px-3 py-2 text-xs font-medium text-zinc-300 transition hover:border-emerald-300/35 hover:bg-emerald-300/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </Container>
+      </div>
     </header>
   );
 }
