@@ -3,6 +3,9 @@ import { SectionHeading } from "@/components/section-heading";
 import { projects } from "@/lib/portfolio";
 
 export function Projects() {
+  const cardClassName =
+    "flex min-h-80 flex-col justify-between rounded-lg border border-white/10 bg-white/[0.035] p-6 transition duration-200 hover:-translate-y-1 hover:border-emerald-300/35 hover:bg-white/[0.055] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300";
+
   return (
     <section id="projects" className="border-b border-white/10 py-20 sm:py-24">
       <Container>
@@ -13,15 +16,26 @@ export function Projects() {
         />
 
         <div className="mt-12 grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => (
-            <article
-              key={project.title}
-              className="flex min-h-80 flex-col justify-between rounded-lg border border-white/10 bg-white/[0.035] p-6 transition duration-200 hover:-translate-y-1 hover:border-emerald-300/35 hover:bg-white/[0.055]"
-            >
+          {projects.map((project) => {
+            const cardContent = (
+              <>
               <div>
-                <p className="font-mono text-xs text-zinc-500">selected/work</p>
-                <h3 className="mt-4 text-2xl font-semibold text-white">{project.title}</h3>
-                <p className="mt-5 text-sm leading-7 text-zinc-400">{project.description}</p>
+                <div className="flex items-center justify-between gap-3">
+                  <p className="font-mono text-xs text-zinc-500">
+                    selected/work
+                  </p>
+                  {project.link ? (
+                    <span className="font-mono text-xs font-medium text-emerald-300">
+                      live
+                    </span>
+                  ) : null}
+                </div>
+                <h3 className="mt-4 text-2xl font-semibold text-white">
+                  {project.title}
+                </h3>
+                <p className="mt-5 text-sm leading-7 text-zinc-400">
+                  {project.description}
+                </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
@@ -33,8 +47,30 @@ export function Projects() {
                   </span>
                 ))}
               </div>
-            </article>
-          ))}
+              </>
+            );
+
+            if (project.link) {
+              return (
+                <a
+                  key={project.title}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClassName}
+                  aria-label={`Open ${project.title}`}
+                >
+                  {cardContent}
+                </a>
+              );
+            }
+
+            return (
+              <article key={project.title} className={cardClassName}>
+                {cardContent}
+              </article>
+            );
+          })}
         </div>
       </Container>
     </section>

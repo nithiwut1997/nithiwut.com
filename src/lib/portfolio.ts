@@ -171,34 +171,36 @@ export const skillGroups = [
 
 export const projects = [
   {
-    title: "Used-Car Marketplace Platform",
+    title: "Roddonjai Used-Car Marketplace Platform",
     description:
-      "Backend services for public vehicle listing and browsing workflows in the banking domain, including car listings, seller operations, and platform reliability work.",
-    tags: ["Spring Boot", "AWS", "Kubernetes", "Banking"],
+      "Core backend services for Thailand’s used-car marketplace platform (roddonjai.com), covering seller onboarding, vehicle inspection workflows, public listing systems, search infrastructure, caching, campaign operations, and marketplace reliability improvements within the banking domain. Also contributed to event-driven vehicle image optimization pipelines using AWS Lambda and S3 triggers for automatic image resizing and WebP conversion.",
+    tags: [
+      "Spring Boot",
+      "AWS",
+      "Kubernetes",
+      "Redis",
+      "Elasticsearch",
+      "AWS SQS",
+      "AWS Lambda",
+      "S3",
+      "WebP",
+      "Banking",
+    ],
+    link: "https://www.roddonjai.com",
   },
   {
-    title: "Seller Onboarding and Inspection Workflows",
+    title: "AI-Powered Marketplace Integrations",
     description:
-      "Seller verification, vehicle inspection status, background workflow handling, and internal administration capabilities required before marketplace publication.",
-    tags: ["REST APIs", "AWS SQS", "Workflow Design", "Admin Systems"],
-  },
-  {
-    title: "Search, Cache, and Campaign Operations",
-    description:
-      "Redis caching, Elasticsearch indexing, marketing banner configuration, campaign settings, and operational fixes to improve marketplace stability and user experience.",
-    tags: ["Redis", "Elasticsearch", "Marketing Config", "Production Support"],
-  },
-  {
-    title: "Promotion Verification and Reporting Services",
-    description:
-      "Internal promotion code verification services for call center teams, plus reporting services and automated email reporting built with cross-functional data teams.",
-    tags: ["Java", "Python", "AWS Serverless", "Reporting"],
-  },
-  {
-    title: "License Plate Recognition Using Deep Learning",
-    description:
-      "Senior project at Chulalongkorn University using labeled image datasets, YOLO transfer learning, Python, Keras, and container deployment on Google Cloud Run.",
-    tags: ["YOLO", "Python", "Keras", "Cloud Run"],
+      "Integrated AI-powered workflows into the automotive marketplace platform, including OCR-based vehicle registration data extraction, AI-assisted vehicle image categorization, intelligent search enhancements, and AI-driven vehicle recommendation experiences. Worked closely with AI engineering teams to design backend integration flows, asynchronous processing pipelines, and production-ready cloud integration architectures.",
+    tags: [
+      "AI Integration",
+      "OCR",
+      "AWS",
+      "Backend Systems",
+      "Async Processing",
+      "Cloud Architecture",
+      "Search Systems",
+    ],
   },
 ];
 
