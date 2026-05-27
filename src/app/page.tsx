@@ -3,6 +3,7 @@ import { ContactFooter } from "@/sections/contact-footer";
 import { Education } from "@/sections/education";
 import { Experience } from "@/sections/experience";
 import { Hero } from "@/sections/hero";
+import { InfrastructureArchitecture } from "@/sections/infrastructure-architecture";
 import { Leadership } from "@/sections/leadership";
 import { Projects } from "@/sections/projects";
 import { ResumeCta } from "@/sections/resume-cta";
@@ -17,6 +18,7 @@ export default function Home() {
         <Experience />
         <Skills />
         <Projects />
+        <InfrastructureArchitecture />
         <Leadership />
         <Education />
         <ResumeCta />
