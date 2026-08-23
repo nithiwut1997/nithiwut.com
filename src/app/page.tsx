@@ -4,7 +4,6 @@ import { Education } from "@/sections/education";
 import { Experience } from "@/sections/experience";
 import { Hero } from "@/sections/hero";
 import { InfrastructureArchitecture } from "@/sections/infrastructure-architecture";
-import { Leadership } from "@/sections/leadership";
 import { Projects } from "@/sections/projects";
 import { ResumeCta } from "@/sections/resume-cta";
 import { Skills } from "@/sections/skills";
@@ -15,11 +14,10 @@ export default function Home() {
       <main id="main">
         <Hero />
         <About />
-        <Experience />
         <Skills />
+        <Experience />
         <Projects />
         <InfrastructureArchitecture />
-        <Leadership />
         <Education />
         <ResumeCta />
       </main>

@@ -1,10 +1,38 @@
+export type SkillGroup = {
+  title: string;
+  skills: readonly string[];
+  emphasis: "primary" | "standard" | "supporting";
+};
+
+export type CaseStudy = {
+  title: string;
+  context: string;
+  problem: string;
+  approach: string;
+  value: string;
+  tags: readonly string[];
+  flow?: readonly string[];
+  link?: string;
+  featured?: boolean;
+};
+
+export type ArchitectureWorkflow = {
+  title: string;
+  description: string;
+  flow: readonly {
+    label: string;
+    detail: string;
+  }[];
+};
+
 export const profile = {
   name: "Nithiwut Wilainuch",
-  role: "Senior Software Engineer / Squad Lead",
+  role: "Senior Software Engineer",
   location: "Bangkok, Thailand",
-  focus: "Full-stack capable, with a backend and cloud engineering focus",
+  focus:
+    "Backend-focused engineer specializing in Java, Spring Boot, cloud-native systems, and production reliability.",
   summary:
-    "Senior Software Engineer with 5+ years of experience building scalable systems in banking and startup environments. Open to full-stack product work, with strongest focus on backend services, cloud-native delivery, marketplace workflows, and production support.",
+    "Senior Software Engineer with 6 years of experience designing and developing backend and web applications across banking and startup environments.",
 };
 
 export const contact = {
@@ -15,10 +43,11 @@ export const contact = {
 
 export const navItems = [
   { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Highlights", href: "#highlights" },
   { label: "Architecture", href: "#architecture" },
+  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -47,49 +76,75 @@ export const contactLinks = [
 ];
 
 export const heroStats = [
-  { label: "Experience", value: "5+ years" },
+  { label: "Experience", value: "6 years" },
   { label: "Current", value: "TTB bank" },
   { label: "Location", value: "Bangkok" },
 ];
 
+export const currentEngineeringScope = [
+  {
+    title: "Backend services",
+    detail:
+      "Java and Spring Boot services for marketplace, lead generation, and internal banking workflows.",
+    tag: "APIs",
+  },
+  {
+    title: "Async and event-driven systems",
+    detail:
+      "Background processing and cloud workflows built around AWS SQS, S3 events, and Lambda.",
+    tag: "AWS",
+  },
+  {
+    title: "Production reliability",
+    detail:
+      "Performance optimization, Kubernetes troubleshooting, root-cause analysis, and delivery support.",
+    tag: "Operations",
+  },
+];
+
+export const productionStack = [
+  "Java 21",
+  "Spring Boot",
+  "PostgreSQL",
+  "AWS",
+  "Kubernetes",
+  "GitLab CI/CD",
+];
+
 export const strengths = [
-  "Designs scalable RESTful APIs and backend services for seller onboarding, car listing, inspection status, and marketplace operations.",
-  "Builds reliable production workflows with Java Spring Boot, AWS services, asynchronous processing, Kubernetes support, and CI/CD delivery.",
-  "Contributes across the full stack when needed, including React and Next.js UI work, while keeping backend reliability and cloud operations as the main depth.",
-  "Works closely with business, operations, data, and engineering teams to clarify requirements, support campaigns, and improve system behavior.",
+  "Designs Java and Spring Boot services, RESTful APIs, relational data access, and asynchronous workflows for production systems.",
+  "Improves application and database performance, investigates production issues, and strengthens reliability through root-cause analysis.",
+  "Delivers cloud-native systems with AWS, Docker, Kubernetes, and CI/CD across banking and startup environments.",
+  "Brings additional full-stack experience with React and Next.js, plus current hands-on work with Angular and NestJS.",
 ];
 
 export const experience = [
   {
-    company: "TTB bank",
+    company: "TTB Bank",
     role: "Senior Software Engineer",
     period: "Apr 2023 - Present",
     location: "Bangkok",
     description:
-      "Developing backend services for Roddonjai, a customer-facing used-car marketplace platform supporting public vehicle listing, browsing, seller operations, and internal administration workflows.",
+      "Develops backend systems in banking, including the Roddonjai used-car marketplace and multi-channel lead generation platforms.",
     highlights: [
-      "Designed and implemented seller onboarding and vehicle inspection workflows, including seller information submission, verification processes, inspection status handling, and publication readiness checks.",
-      "Built and maintained RESTful APIs supporting car listings, seller-related operations, inspection workflows, campaign configuration, and platform content management.",
-      "Collaborated with AI engineering teams to integrate OCR-based vehicle registration data extraction, vehicle image categorization, intelligent search enhancements, and AI-assisted vehicle recommendation features.",
-      "Designed and integrated event-driven image processing workflows using AWS Lambda and S3 triggers for automatic vehicle image resizing and WebP optimization.",
-      "Improved marketplace search performance and user experience using Redis caching and Elasticsearch indexing.",
-      "Designed asynchronous workflow integrations using AWS SQS for background processing, workflow orchestration, and scalable task handling.",
-      "Supported production services running in Kubernetes environments, including deployment troubleshooting, monitoring, incident investigation, and operational reliability improvements.",
-      "Investigated production issues, identified root causes, and applied fixes to improve system stability, reliability, and operational readiness.",
-      "Worked with CI/CD pipelines and deployment processes to release changes across multiple environments.",
-      "Coordinated with business, operations, and cross-functional engineering teams to clarify requirements, support campaign operations, and deliver platform enhancements.",
+      "Design and develop Java and Spring Boot services for Roddonjai, supporting seller onboarding, vehicle inspection, listings, campaign configuration, and internal operations.",
+      "Co-develop a multi-channel lead generation platform with an external vendor using Angular, Node.js, and AWS Lambda, capturing and routing leads into internal banking systems.",
+      "Build proof-of-concept and core features for a new internally developed lead generation platform using Angular and NestJS.",
+      "Optimize high-volume data processing by replacing iterative JPA operations with JDBC bulk operations, reducing unnecessary ORM overhead.",
+      "Design asynchronous export workflows with AWS SQS and an event-driven S3/Lambda pipeline that produces resized WebP vehicle images.",
+      "Drive backend upgrades from Java 11 to Java 21, including adoption of modern language features such as records.",
+      "Support Kubernetes production workloads through application and deployment troubleshooting, root-cause analysis, reliability improvements, technical design, code reviews, estimation, and cross-functional delivery planning.",
     ],
     technologies: [
-      "Java",
+      "Java 11-21",
       "Spring Boot",
-      "AWS Lambda",
-      "AWS S3",
-      "AWS SQS",
+      "JPA / JDBC",
+      "NestJS",
+      "AWS",
+      "PostgreSQL",
       "Redis",
       "Elasticsearch",
       "Kubernetes",
-      "CI/CD",
-      "AI Integration",
     ],
   },
   {
@@ -98,19 +153,18 @@ export const experience = [
     period: "May 2021 - Mar 2023",
     location: "Bangkok",
     description:
-      "Developed backend services using Java, Python, and AWS Serverless technologies for production systems in a startup environment.",
+      "Developed and supported production backend services using Java, Python, and AWS Serverless technologies in a startup environment.",
     highlights: [
-      "Delivered multiple backend features across several production software releases.",
-      "Migrated deployment workflows from manual zip-based deployment to automated CI/CD pipelines, improving release consistency and deployment efficiency.",
-      "Containerized services using Docker and integrated deployment workflows with Jenkins pipelines.",
-      "Developed internal promotion code verification services used by call center teams.",
-      "Collaborated with data teams to build reporting services and automated email reporting workflows.",
-      "Supported production systems and worked with cross-functional teams to investigate and resolve operational issues.",
+      "Built Lambda-based APIs and background workflows for production services using Java, Python, and AWS Serverless.",
+      "Replaced manual ZIP deployments with automated CI/CD pipelines, using Docker and Jenkins to make releases more consistent.",
+      "Developed internal promotion verification services for call-center workflows and reporting services with automated email delivery.",
+      "Investigated production issues and coordinated with engineering and data teams to restore and improve service behavior.",
     ],
     technologies: [
       "Java",
       "Python",
-      "AWS Serverless",
+      "AWS Lambda",
+      "API Gateway",
       "Docker",
       "Jenkins",
       "CI/CD",
@@ -122,97 +176,242 @@ export const experience = [
     period: "Jun 2020 - Apr 2021",
     location: "Bangkok",
     description:
-      "Built backend services, frontend components, and data workflows for public-policy software systems.",
+      "Built public-policy applications and data workflows, establishing an early full-stack foundation.",
     highlights: [
-      "Developed backend services using Django and PostgreSQL.",
-      "Built frontend components using React and Next.js based on UI/UX designs.",
-      "Worked on ETL-related tasks and maintained data pipelines.",
-      "Coordinated with team members to ensure data accuracy, system stability, and reliable delivery.",
+      "Developed Django and PostgreSQL backend services and REST APIs.",
+      "Implemented frontend experiences with React and Next.js, and maintained ETL and data pipelines.",
     ],
-    technologies: ["Django", "PostgreSQL", "React", "Next.js", "ETL"],
+    technologies: ["Django", "PostgreSQL", "REST APIs", "React", "Next.js", "ETL"],
   },
 ];
 
 export const skillGroups = [
   {
     title: "Languages",
-    skills: ["Java 11-21", "Python", "TypeScript"],
+    skills: ["Java 11-21", "Python", "TypeScript", "JavaScript"],
+    emphasis: "standard",
   },
   {
     title: "Backend",
     skills: [
       "Spring Boot",
-      "Django",
+      "Spring Data JPA",
+      "JDBC",
+      "NestJS",
       "Node.js",
+      "Django",
       "RESTful APIs",
-      "Async workflows",
     ],
+    emphasis: "primary",
+  },
+  {
+    title: "Architecture",
+    skills: [
+      "Microservices",
+      "Event-Driven Architecture",
+      "Asynchronous Processing",
+    ],
+    emphasis: "primary",
+  },
+  {
+    title: "Databases & Search",
+    skills: ["PostgreSQL", "MySQL", "Redis", "Elasticsearch"],
+    emphasis: "standard",
   },
   {
     title: "Cloud",
-    skills: ["AWS Lambda", "API Gateway", "S3", "SQS", "Aurora"],
+    skills: [
+      "AWS S3",
+      "AWS SQS",
+      "AWS Lambda",
+      "API Gateway",
+      "EKS",
+      "AWS Batch",
+      "EventBridge",
+    ],
+    emphasis: "primary",
   },
   {
-    title: "Platform",
+    title: "DevOps & Infrastructure",
     skills: [
       "Docker",
       "Kubernetes",
-      "Jenkins",
+      "Helm",
       "GitLab CI/CD",
-      "Production support",
+      "Jenkins",
+      "Terraform",
+    ],
+    emphasis: "standard",
+  },
+  {
+    title: "Engineering Practices",
+    skills: [
+      "Code Review",
+      "Troubleshooting",
+      "Root-Cause Analysis",
+      "Performance Optimization",
+    ],
+    emphasis: "standard",
+  },
+  {
+    title: "Frontend / Additional",
+    skills: ["Angular", "React", "Next.js", "HTML", "CSS"],
+    emphasis: "supporting",
+  },
+] satisfies readonly SkillGroup[];
+
+export const caseStudies: readonly CaseStudy[] = [
+  {
+    title: "Multi-channel Lead Generation Platform",
+    context: "Banking systems integration",
+    problem:
+      "Leads arrive from multiple channels and need to reach internal banking systems through dependable, maintainable workflows.",
+    approach:
+      "Co-develop the current platform with a vendor using Angular, Node.js, and AWS Lambda, while exploring a parallel internal implementation with Angular and NestJS.",
+    value:
+      "Creates a clearer path for channel integration and informs migration and rebuild decisions without tying workflows to a single intake source.",
+    tags: ["NestJS", "Node.js", "AWS Lambda", "System Integration"],
+    featured: true,
+  },
+  {
+    title: "High-volume Database Processing",
+    context: "Backend performance",
+    problem:
+      "Iterative ORM-based operations add avoidable overhead to data-intensive, high-volume workloads.",
+    approach:
+      "Refactor iterative Spring Data JPA operations into explicit JDBC bulk operations designed around the workload.",
+    value:
+      "Reduces unnecessary ORM work and makes large data-processing paths more efficient and predictable.",
+    tags: ["Spring Data JPA", "JDBC", "Relational Databases"],
+  },
+  {
+    title: "Asynchronous Export Processing",
+    context: "Long-running workflows",
+    problem:
+      "Large report and data exports should not hold open synchronous API requests while processing completes.",
+    approach:
+      "Queue export jobs with AWS SQS and let background workers process them independently from the request-response lifecycle.",
+    value:
+      "Decouples long-running work from APIs and provides a clearer model for export result and status handling.",
+    tags: ["AWS SQS", "Async Processing", "Background Workers"],
+    flow: ["API", "SQS", "Background Worker", "Export Result / Status"],
+  },
+  {
+    title: "Event-driven Image Optimization",
+    context: "Cloud-native media processing",
+    problem:
+      "Serving original vehicle images increases delivery bandwidth and cost when smaller presentation-ready assets are sufficient.",
+    approach:
+      "React to S3 upload events with AWS Lambda and automatically generate resized WebP variants.",
+    value:
+      "Moves image transformation out of the request path and supports more efficient image delivery through reusable optimized assets.",
+    tags: ["Amazon S3", "AWS Lambda", "Event-Driven", "WebP"],
+    flow: [
+      "Image Upload",
+      "Amazon S3",
+      "S3 Event",
+      "AWS Lambda",
+      "WebP Variants",
     ],
   },
   {
-    title: "Data",
-    skills: ["MySQL", "PostgreSQL", "Redis", "Elasticsearch", "ETL"],
-  },
-  {
-    title: "Frontend",
-    skills: ["React", "Next.js", "UI implementation"],
-  },
-];
-
-export const projects = [
-  {
-    title: "Roddonjai Used-Car Marketplace Platform",
-    description:
-      "Core backend services for Thailand’s used-car marketplace platform (roddonjai.com), covering seller onboarding, vehicle inspection workflows, public listing systems, search infrastructure, caching, campaign operations, and marketplace reliability improvements within the banking domain. Also contributed to event-driven vehicle image optimization pipelines using AWS Lambda and S3 triggers for automatic image resizing and WebP conversion.",
+    title: "Roddonjai Marketplace Backend",
+    context: "Used-car marketplace",
+    problem:
+      "A customer-facing marketplace needs coordinated backend workflows across sellers, inspections, vehicle listings, campaigns, and internal operations.",
+    approach:
+      "Develop Spring Boot services and integrations using relational data, Redis, and Elasticsearch, with backend integrations to OCR and image categorization services where required.",
+    value:
+      "Provides a maintainable backend foundation for marketplace operations, search, supporting workflows, and ongoing production support.",
     tags: [
       "Spring Boot",
-      "AWS",
-      "Kubernetes",
       "Redis",
       "Elasticsearch",
-      "AWS SQS",
-      "AWS Lambda",
-      "S3",
-      "WebP",
-      "Banking",
+      "Backend integration with AI-powered services",
     ],
     link: "https://www.roddonjai.com",
   },
+];
+
+export const engineeringOwnership = [
   {
-    title: "AI-Powered Marketplace Integrations",
+    title: "Technical contribution",
     description:
-      "Integrated AI-powered workflows into the automotive marketplace platform, including OCR-based vehicle registration data extraction, AI-assisted vehicle image categorization, intelligent search enhancements, and AI-driven vehicle recommendation experiences. Worked closely with AI engineering teams to design backend integration flows, asynchronous processing pipelines, and production-ready cloud integration architectures.",
-    tags: [
-      "AI Integration",
-      "OCR",
-      "AWS",
-      "Backend Systems",
-      "Async Processing",
-      "Cloud Architecture",
-      "Search Systems",
-    ],
+      "Contributes to technical discussions and design decisions, reviews code, and helps teams converge on maintainable implementation approaches.",
+  },
+  {
+    title: "Planning and delivery",
+    description:
+      "Breaks down work, supports estimation and delivery planning, and coordinates with BA, SA, QA, architects, vendors, operations, and engineers.",
+  },
+  {
+    title: "Team enablement",
+    description:
+      "Helps onboard team members by sharing system context, architecture, development workflows, and practical project setup knowledge.",
+  },
+  {
+    title: "Production decisions",
+    description:
+      "Supports troubleshooting and root-cause analysis, then helps turn production findings into concrete reliability improvements.",
   },
 ];
 
-export const leadership = [
-  "Supported backend technical leadership within the squad through technical discussions, delivery coordination, and production support activities.",
-  "Reviewed code and provided feedback to improve code quality and engineering consistency.",
-  "Helped onboard new team members by explaining system architecture, development workflows, and project setup.",
-  "Collaborated with business and operations teams to clarify requirements and system behavior.",
-];
+export const architectureWorkflows = [
+  {
+    title: "Asynchronous export processing",
+    description:
+      "A queue separates API response handling from report and data-export workloads that may take longer to complete.",
+    flow: [
+      {
+        label: "Client / API",
+        detail: "Accept and validate the export request.",
+      },
+      {
+        label: "Backend Service",
+        detail: "Create the job and publish work for processing.",
+      },
+      {
+        label: "AWS SQS",
+        detail: "Buffer and decouple the long-running task.",
+      },
+      {
+        label: "Background Worker",
+        detail: "Generate the requested report or dataset.",
+      },
+      {
+        label: "Storage / Status",
+        detail: "Store the result and expose job status.",
+      },
+    ],
+  },
+  {
+    title: "Event-driven image processing",
+    description:
+      "S3 events trigger media transformation automatically after vehicle images are uploaded.",
+    flow: [
+      {
+        label: "Image Upload",
+        detail: "Receive the original vehicle image.",
+      },
+      {
+        label: "Amazon S3",
+        detail: "Persist the source asset in object storage.",
+      },
+      {
+        label: "S3 Event",
+        detail: "Emit an event when the image is stored.",
+      },
+      {
+        label: "AWS Lambda",
+        detail: "Resize and convert the source image.",
+      },
+      {
+        label: "Optimized WebP",
+        detail: "Store presentation-ready image variants.",
+      },
+    ],
+  },
+] satisfies readonly ArchitectureWorkflow[];
 
 export const education = {
   degree: "Bachelor of Engineering, Computer Engineering",
@@ -220,9 +419,7 @@ export const education = {
   location: "Bangkok",
   seniorProject: "License Plate Recognition Using Deep Learning",
   highlights: [
-    "Prepared and labeled image datasets for license plate detection model training.",
-    "Implemented license plate detection using YOLO with transfer learning techniques.",
-    "Built a recognition pipeline using Python and Keras.",
-    "Deployed the service on Google Cloud Run using container-based deployment.",
+    "Built a license plate recognition system using YOLO transfer learning, Python, and Keras.",
+    "Deployed the application to Google Cloud Run using containerized deployment.",
   ],
 };

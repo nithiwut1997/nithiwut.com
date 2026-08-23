@@ -1,73 +1,106 @@
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
-import { projects } from "@/lib/portfolio";
+import { caseStudies } from "@/lib/portfolio";
+
+const detailLabels = [
+  { key: "problem", label: "Problem" },
+  { key: "approach", label: "Engineering approach" },
+  { key: "value", label: "Engineering value" },
+] as const;
 
 export function Projects() {
-  const cardClassName =
-    "flex min-h-80 flex-col justify-between rounded-lg border border-white/10 bg-white/[0.035] p-6 transition duration-200 hover:-translate-y-1 hover:border-emerald-300/35 hover:bg-white/[0.055] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300";
-
   return (
-    <section id="projects" className="border-b border-white/10 py-20 sm:py-24">
+    <section id="highlights" className="border-b border-white/10 py-20 sm:py-24">
       <Container>
         <SectionHeading
-          eyebrow="Projects"
-          title="Resume-backed engineering work."
-          description="Selected systems from banking, startup, public-sector, and university work, focused on backend delivery, platform reliability, and applied machine learning."
+          eyebrow="Engineering Highlights"
+          title="Case studies from real production work."
+          description="Selected backend challenges, the engineering approach behind them, and the value of each design—without invented metrics or duplicated resume bullets."
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => {
-            const cardContent = (
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          {caseStudies.map((study) => {
+            const content = (
               <>
-              <div>
-                <div className="flex items-center justify-between gap-3">
-                  <p className="font-mono text-xs text-zinc-500">
-                    selected/work
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="font-mono text-xs uppercase text-zinc-500">
+                    {study.context}
                   </p>
-                  {project.link ? (
+                  {study.link ? (
                     <span className="font-mono text-xs font-medium text-emerald-300">
-                      live
+                      View live site ↗
                     </span>
                   ) : null}
                 </div>
+
                 <h3 className="mt-4 text-2xl font-semibold text-white">
-                  {project.title}
+                  {study.title}
                 </h3>
-                <p className="mt-5 text-sm leading-7 text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs font-medium text-zinc-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+
+                <dl className="mt-6 space-y-5">
+                  {detailLabels.map(({ key, label }) => (
+                    <div key={key}>
+                      <dt className="font-mono text-xs uppercase tracking-wide text-emerald-300/80">
+                        {label}
+                      </dt>
+                      <dd className="mt-2 text-sm leading-7 text-zinc-400">
+                        {study[key]}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+
+                {study.flow ? (
+                  <div className="mt-6 border-y border-white/10 py-4">
+                    <p className="sr-only">Conceptual workflow</p>
+                    <ol className="flex flex-wrap items-center gap-2 text-xs">
+                      {study.flow.map((step, index) => (
+                        <li key={step} className="flex items-center gap-2">
+                          <span className="rounded-md border border-emerald-300/20 bg-emerald-300/[0.06] px-2.5 py-2 font-mono text-zinc-300">
+                            {step}
+                          </span>
+                          {index < study.flow!.length - 1 ? (
+                            <span className="text-emerald-300" aria-hidden="true">
+                              →
+                            </span>
+                          ) : null}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                ) : null}
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {study.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs font-medium text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </>
             );
 
-            if (project.link) {
-              return (
-                <a
-                  key={project.title}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cardClassName}
-                  aria-label={`Open ${project.title}`}
-                >
-                  {cardContent}
-                </a>
-              );
-            }
+            const className = `rounded-lg border border-white/10 bg-white/[0.035] p-6 transition duration-200 hover:border-emerald-300/35 hover:bg-white/[0.055] sm:p-7 ${
+              study.featured ? "lg:col-span-2" : ""
+            }`;
 
-            return (
-              <article key={project.title} className={cardClassName}>
-                {cardContent}
+            return study.link ? (
+              <a
+                key={study.title}
+                href={study.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${className} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300`}
+                aria-label={`Read the ${study.title} case study and open the live site`}
+              >
+                {content}
+              </a>
+            ) : (
+              <article key={study.title} className={className}>
+                {content}
               </article>
             );
           })}

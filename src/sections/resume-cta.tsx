@@ -14,12 +14,11 @@ export function ResumeCta() {
               Resume
             </p>
             <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
-              Full resume available as a PDF.
+              Prefer the concise version?
             </h2>
             <p className="mt-5 text-base leading-8 text-zinc-400">
-              The web page now mirrors the resume content. Keep the PDF download
-              for a compact recruiter-friendly version and future S3 plus
-              CloudFront hosting.
+              View the concise version of my experience, skills, and professional
+              background.
             </p>
           </div>
 

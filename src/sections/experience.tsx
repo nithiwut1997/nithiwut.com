@@ -1,5 +1,6 @@
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
+import { EngineeringOwnership } from "@/sections/leadership";
 import { experience } from "@/lib/portfolio";
 
 export function Experience() {
@@ -7,9 +8,9 @@ export function Experience() {
     <section id="experience" className="border-b border-white/10 py-20 sm:py-24">
       <Container>
         <SectionHeading
-          eyebrow="Experience"
+          eyebrow="Professional Experience"
           title="A backend track record across banking, startup, and public-sector work."
-          description="Focused on reliable services, maintainable workflows, and platform-aware delivery."
+          description="Six years building production services, cloud workflows, and data-driven applications with increasing technical ownership."
         />
 
         <div className="mt-12">
@@ -49,6 +50,8 @@ export function Experience() {
             </article>
           ))}
         </div>
+
+        <EngineeringOwnership />
       </Container>
     </section>
   );

@@ -1,36 +1,13 @@
 import { Container } from "@/components/container";
 import { LinkButton } from "@/components/link-button";
-import { contactLinks, heroStats, profile, socialLinks } from "@/lib/portfolio";
-
-const currentWorkflows = [
-  {
-    title: "Buyer experience",
-    detail:
-      "Customer-facing marketplace website for browsing used car listings, searching vehicles, checking market pricing, and applying for financing services.",
-    tag: "REST APIs",
-  },
-  {
-    title: "Seller onboarding",
-    detail:
-      "Seller onboarding workflows supporting both dealers and individual sellers, including vehicle listing management, document submission, and vehicle inspection processes before publishing.",
-    tag: "Workflow",
-  },
-  {
-    title: "Admin operations",
-    detail:
-      "Internal administration systems for campaign management, content operations, seller document verification, and operational workflows supporting marketplace activities.",
-    tag: "Internal UI",
-  },
-];
-
-const productionStack = [
-  "Spring Boot",
-  "PostgreSQL",
-  "Redis",
-  "Elasticsearch",
-  "AWS SQS",
-  "Kubernetes",
-];
+import {
+  contactLinks,
+  currentEngineeringScope,
+  heroStats,
+  productionStack,
+  profile,
+  socialLinks,
+} from "@/lib/portfolio";
 
 export function Hero() {
   return (
@@ -57,8 +34,8 @@ export function Hero() {
             <LinkButton href="/Nithiwut_Wilainuch_Resume.pdf" download>
               Download resume
             </LinkButton>
-            <LinkButton href="#projects" variant="secondary">
-              View projects
+            <LinkButton href="#highlights" variant="secondary">
+              View engineering highlights
             </LinkButton>
           </div>
 
@@ -123,11 +100,11 @@ export function Hero() {
 
           <div className="py-6">
             <p className="font-mono text-xs uppercase text-zinc-500">
-              Current marketplace scope
+                Current engineering scope
             </p>
 
             <div className="mt-4 divide-y divide-white/10 border-y border-white/10">
-              {currentWorkflows.map((item, index) => (
+              {currentEngineeringScope.map((item, index) => (
                 <div
                   key={item.title}
                   className="grid gap-3 py-4 sm:grid-cols-[2.25rem_1fr]"
@@ -171,8 +148,8 @@ export function Hero() {
 
           <div className="surface-line h-px" />
           <p className="pt-5 font-mono text-sm leading-7 text-zinc-400">
-            platform scope: buyer marketplace / seller onboarding / vehicle
-            inspection / admin operations
+            focus: backend delivery / cloud-native workflows / production
+            reliability
           </p>
         </aside>
       </Container>

@@ -1,30 +1,30 @@
-import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
-import { leadership } from "@/lib/portfolio";
+import { engineeringOwnership } from "@/lib/portfolio";
 
-export function Leadership() {
+export function EngineeringOwnership() {
   return (
-    <section id="leadership" className="border-b border-white/10 py-20 sm:py-24">
-      <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+    <div className="grid gap-12 border-t border-white/10 pt-16 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeading
-            eyebrow="Leadership"
-            title="Squad contribution beyond implementation."
-            description="Technical leadership, delivery coordination, production support, and onboarding work that helps the team move with clearer context."
+            eyebrow="Engineering Ownership"
+            title="Senior contribution beyond implementation."
+            description="Technical input, delivery support, and cross-functional collaboration without overstating formal authority."
           />
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {leadership.map((item) => (
+            {engineeringOwnership.map((item) => (
               <article
-                key={item}
+                key={item.title}
                 className="rounded-lg border border-white/10 bg-white/[0.035] p-6 transition duration-200 hover:border-emerald-300/30 hover:bg-white/[0.055]"
               >
-                <p className="text-sm leading-7 text-zinc-300">{item}</p>
+                <h3 className="text-base font-semibold text-zinc-100">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                  {item.description}
+                </p>
               </article>
             ))}
           </div>
-        </div>
-      </Container>
-    </section>
+    </div>
   );
 }

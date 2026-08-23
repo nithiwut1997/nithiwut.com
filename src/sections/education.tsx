@@ -9,7 +9,7 @@ export function Education() {
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <SectionHeading
             eyebrow="Education"
-            title="Computer engineering foundation with applied machine learning work."
+            title="Computer engineering foundation."
             description={`${education.degree} from ${education.school}, ${education.location}.`}
           />
 

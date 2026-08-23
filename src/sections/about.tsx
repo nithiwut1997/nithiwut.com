@@ -1,6 +1,6 @@
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
-import { strengths } from "@/lib/portfolio";
+import { profile, strengths } from "@/lib/portfolio";
 
 export function About() {
   return (
@@ -9,8 +9,8 @@ export function About() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeading
             eyebrow="About"
-            title="Backend and cloud depth, with full-stack range."
-            description="Builds production systems across banking and startup environments. Comfortable contributing across the stack, while strongest in scalable APIs, async workflows, cloud delivery, and reliable operations."
+            title="Backend engineering is the core of my work."
+            description={`${profile.summary} My strongest areas are Java, Spring Boot, RESTful APIs, relational databases, asynchronous processing, cloud-native delivery, and production reliability.`}
           />
 
           <div className="grid gap-4">

@@ -16,29 +16,30 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nithiwut.com"),
   title: {
-    default: "Nithiwut Wilainuch | Senior Software Engineer / Squad Lead",
+    default: "Nithiwut Wilainuch | Senior Software Engineer",
     template: "%s | Nithiwut Wilainuch",
   },
   description:
-    "Portfolio for Nithiwut Wilainuch, a Senior Software Engineer and Squad Lead in Bangkok open to full-stack work with a strong focus on scalable backend systems, AWS, Kubernetes, marketplace workflows, and production reliability.",
+    "Backend engineering portfolio for Nithiwut Wilainuch, a Senior Software Engineer specializing in Java, Spring Boot, AWS, cloud-native systems, and production reliability.",
   applicationName: "nithiwut.com",
   authors: [{ name: "Nithiwut Wilainuch" }],
   keywords: [
     "Nithiwut Wilainuch",
     "Backend Engineer",
-    "Full Stack Engineer",
     "Senior Software Engineer",
-    "Squad Lead",
+    "Java Engineer",
+    "Spring Boot",
+    "RESTful APIs",
     "Cloud Architecture",
     "Platform Engineering",
     "AWS",
     "Kubernetes",
-    "Spring Boot",
+    "Event-Driven Architecture",
   ],
   openGraph: {
-    title: "Nithiwut Wilainuch | Senior Software Engineer / Squad Lead",
+    title: "Nithiwut Wilainuch | Senior Software Engineer",
     description:
-      "Full-stack capable engineering portfolio with deep backend, cloud, and platform focus.",
+      "Backend-focused engineering portfolio covering Java, Spring Boot, AWS, cloud-native systems, and production reliability.",
     url: "https://nithiwut.com",
     siteName: "nithiwut.com",
     locale: "en_US",
@@ -46,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nithiwut Wilainuch | Senior Software Engineer / Squad Lead",
+    title: "Nithiwut Wilainuch | Senior Software Engineer",
     description:
-      "Full-stack capable engineering portfolio with deep backend, cloud, and platform focus.",
+      "Backend-focused engineering portfolio covering Java, Spring Boot, AWS, cloud-native systems, and production reliability.",
   },
   robots: {
     index: true,

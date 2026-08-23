@@ -9,10 +9,12 @@ export function ContactFooter() {
           <div>
             <p className="text-sm font-semibold uppercase text-emerald-300">Contact</p>
             <h2 className="mt-4 max-w-2xl text-3xl font-semibold text-white sm:text-4xl">
-              Open to full-stack roles with backend and cloud ownership.
+              Let&apos;s build reliable backend systems.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
-              Based in {contact.location}. Reach out for full-stack product work, backend-heavy teams, squad lead roles, cloud platforms, or production reliability opportunities.
+              Based in {contact.location}. Reach out about senior software or
+              backend engineering opportunities involving Java, cloud-native
+              systems, platform delivery, or production reliability.
             </p>
           </div>
 
