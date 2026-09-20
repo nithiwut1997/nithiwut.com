@@ -6,7 +6,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 text-foreground backdrop-blur-md">
       <Container className="flex min-h-16 flex-wrap items-center justify-between gap-x-5 sm:flex-nowrap">
         <a href="#main" className="w-fit py-2 text-sm font-medium tracking-tight transition-colors hover:text-accent" aria-label="Nithiwut Wilainuch home">
-          Nithiwut<span className="text-accent">.</span>
+          Nithiwut Wilainuch<span className="text-accent">.</span>
         </a>
         <nav aria-label="Primary navigation" className="order-3 flex w-full items-center justify-between border-t border-border py-1 sm:order-none sm:w-auto sm:justify-start sm:border-0 sm:py-0 sm:gap-7">
           {navItems.map((item) => (
