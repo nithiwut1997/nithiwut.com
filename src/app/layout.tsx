@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -13,6 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#fafaf8",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://nithiwut.com"),
   title: {
@@ -20,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Nithiwut Wilainuch",
   },
   description:
-    "Backend engineering portfolio for Nithiwut Wilainuch, a Senior Software Engineer specializing in Java, Spring Boot, AWS, cloud-native systems, and production reliability.",
+    "Nithiwut Wilainuch, Senior Software Engineer. Backend-focused engineering across banking and startup environments, from application code and data to production operations.",
   applicationName: "nithiwut.com",
   authors: [{ name: "Nithiwut Wilainuch" }],
   keywords: [
@@ -70,11 +75,11 @@ export default function RootLayout({
       <body className="min-h-full bg-background text-foreground">
         <a
           href="#main"
-          className="sr-only z-50 rounded-md bg-foreground px-4 py-3 text-sm font-medium text-background focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+          className="sr-only z-50 rounded-sm border border-border bg-surface px-4 py-3 text-sm font-medium text-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
         >
           Skip to content
         </a>
-        <div className="site-bg min-h-screen">
+        <div className="min-h-screen bg-background text-foreground">
           <SiteHeader />
           {children}
         </div>

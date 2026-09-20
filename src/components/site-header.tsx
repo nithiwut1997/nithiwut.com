@@ -3,50 +3,19 @@ import { navItems } from "@/lib/portfolio";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-black/[0.72] backdrop-blur-xl">
-      <Container className="flex min-h-16 items-center justify-between gap-4">
-        <a
-          href="#main"
-          className="font-mono text-sm font-semibold text-white transition hover:text-emerald-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300"
-          aria-label="Nithiwut Wilainuch home"
-        >
-          Nithiwut Wilainuch
+    <header className="sticky top-0 z-40 border-b border-border bg-background/90 text-foreground">
+      <Container className="flex flex-col gap-1 py-3 sm:min-h-20 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-0">
+        <a href="#main" className="w-fit py-2 text-sm font-medium tracking-tight transition-colors hover:text-accent" aria-label="Nithiwut Wilainuch home">
+          Nithiwut<span className="text-accent">.</span>
         </a>
-
-        <nav
-          className="hidden items-center gap-6 md:flex"
-          aria-label="Primary navigation"
-        >
+        <nav aria-label="Primary navigation" className="flex items-center justify-between gap-4 sm:gap-7">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-zinc-400 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300"
-            >
+            <a key={item.href} href={item.href} className="inline-flex min-h-11 items-center text-sm text-secondary transition-colors hover:text-accent">
               {item.label}
             </a>
           ))}
         </nav>
       </Container>
-
-      <div className="border-t border-white/10 md:hidden">
-        <Container className="overflow-x-auto py-2">
-          <nav
-            className="flex min-w-max items-center gap-2"
-            aria-label="Mobile navigation"
-          >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="rounded-lg border border-white/10 bg-white/[0.035] px-3 py-2 text-xs font-medium text-zinc-300 transition hover:border-emerald-300/35 hover:bg-emerald-300/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </Container>
-      </div>
     </header>
   );
 }

@@ -1,57 +1,43 @@
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
-import { EngineeringOwnership } from "@/sections/leadership";
 import { experience } from "@/lib/portfolio";
 
 export function Experience() {
   return (
-    <section id="experience" className="border-b border-white/10 py-20 sm:py-24">
+    <section id="experience" aria-labelledby="experience-heading" className="border-t border-border py-16 sm:py-24">
       <Container>
-        <SectionHeading
-          eyebrow="Professional Experience"
-          title="A backend track record across banking, startup, and public-sector work."
-          description="Six years building production services, cloud workflows, and data-driven applications with increasing technical ownership."
-        />
-
-        <div className="mt-12">
+        <SectionHeading id="experience-heading" number="03" title="Professional experience" />
+        <div className="mt-10">
           {experience.map((item) => (
-            <article
-              key={`${item.company}-${item.role}`}
-              className="grid gap-6 border-t border-white/10 py-9 md:grid-cols-[0.8fr_1.4fr]"
-            >
+            <article key={item.company} className="grid gap-5 border-t border-border py-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-12">
               <div>
-                <p className="text-sm font-semibold text-emerald-300">{item.period}</p>
-                <h3 className="mt-3 text-2xl font-semibold text-white">{item.company}</h3>
-                <p className="mt-2 text-zinc-400">{item.role}</p>
-                <p className="mt-1 text-sm text-zinc-500">{item.location}</p>
+                <p className="font-mono text-xs text-muted">{item.period}</p>
+                <h3 className="mt-3 max-w-sm text-xl font-medium leading-7">{item.company}</h3>
+                <p className="mt-2 text-sm text-secondary">{item.role}</p>
               </div>
-
-              <div>
-                <p className="text-base leading-8 text-zinc-300">{item.description}</p>
-                <ul className="mt-5 space-y-3">
+              <div className="text-sm leading-7 text-secondary">
+                <p>{item.description}</p>
+                <ul className="mt-4 list-disc space-y-2 pl-4 marker:text-muted">
                   {item.highlights.map((highlight) => (
-                    <li key={highlight} className="flex gap-3 text-sm leading-7 text-zinc-400">
-                      <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-300" />
-                      <span>{highlight}</span>
-                    </li>
+                    <li key={highlight} className="pl-1">{highlight}</li>
                   ))}
                 </ul>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {item.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-lg border border-white/10 bg-white/[0.035] px-3 py-2 text-xs font-medium text-zinc-300"
-                    >
-                      {technology}
-                    </span>
-                  ))}
-                </div>
+                {item.link ? (
+                  <a
+                    href={item.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-link mt-3 inline-flex min-h-11 items-center gap-2"
+                  >
+                    {item.link.label}
+                    <span aria-hidden="true">↗</span>
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                ) : null}
               </div>
             </article>
           ))}
         </div>
-
-        <EngineeringOwnership />
       </Container>
     </section>
   );
