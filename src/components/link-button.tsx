@@ -8,7 +8,7 @@ type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 
 const variants = {
   primary:
-    "border-border bg-surface text-accent hover:border-accent hover:bg-accent-subtle hover:text-accent-hover",
+    "border-accent bg-accent text-white hover:border-accent-hover hover:bg-accent-hover",
   secondary:
     "border-border bg-surface text-foreground hover:border-accent hover:bg-accent-subtle hover:text-accent-hover",
 };
@@ -25,7 +25,7 @@ export function LinkButton({
 
   return (
     <a
-      className={`inline-flex min-h-11 items-center justify-center gap-3 rounded-sm border px-4 py-2.5 text-sm font-medium transition-colors ${variants[variant]} ${className}`}
+      className={`inline-flex min-h-11 items-center justify-center gap-3 rounded-md border px-4 py-2.5 text-sm font-medium transition-colors ${variants[variant]} ${className}`}
       rel={externalRel}
       target={target}
       {...props}

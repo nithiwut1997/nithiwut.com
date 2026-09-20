@@ -40,8 +40,8 @@ export const resume = {
 };
 
 export const navItems = [
-  { label: "Areas", href: "#areas" },
-  { label: "Work", href: "#work" },
+  { label: "Engineering Areas", href: "#areas" },
+  { label: "Engineering Work", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];

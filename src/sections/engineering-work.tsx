@@ -6,7 +6,7 @@ import { engineeringNotes, engineeringStories } from "@/lib/portfolio";
 
 export function EngineeringWork() {
   return (
-    <section id="work" aria-labelledby="work-heading" className="border-t border-border bg-surface py-16 sm:py-24">
+    <section id="work" aria-labelledby="work-heading" className="border-t border-border bg-background py-16 sm:py-24">
       <Container>
         <SectionHeading
           id="work-heading"
@@ -19,11 +19,11 @@ export function EngineeringWork() {
             <EngineeringWorkItem key={story.id} story={story} index={index} />
           ))}
         </div>
-        <div className="border-t border-border pt-9">
+        <div className="mt-2 border-t border-border pt-9">
           <p className="font-mono text-xs text-muted">Further engineering notes</p>
-          <div className="mt-6 grid gap-9 lg:grid-cols-2 lg:gap-12">
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
             {engineeringNotes.map((note) => (
-              <article key={note.id} aria-labelledby={`${note.id}-heading`}>
+              <article key={note.id} aria-labelledby={`${note.id}-heading`} className="rounded-lg border border-border bg-surface p-5 sm:p-6">
                 <h3 id={`${note.id}-heading`} className="text-lg font-medium">{note.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-secondary">{note.description}</p>
                 {note.diagram ? (

@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf8;
-  --foreground: #18181b;
-  --secondary: #52525b;
-  --muted: #71717a;
+  --background: #f3f5f7;
+  --foreground: #172033;
+  --secondary: #536071;
+  --muted: #6f7d8c;
   --surface: #ffffff;
-  --surface-secondary: #f4f4f2;
-  --border: #e4e4e7;
+  --surface-secondary: #e9eef3;
+  --border: #d9e0e7;
   --accent: #315e85;
   --accent-hover: #244866;
-  --accent-subtle: #eef3f7;
-  --diagram-border: #d4d4d4;
-  --diagram-connector: #a1a1aa;
+  --accent-subtle: #e3edf5;
+  --diagram-border: #c8d5df;
+  --diagram-connector: #7892a9;
+  --font-geist-sans: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-geist-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   color-scheme: only light;
 }
 
@@ -42,6 +44,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 section[id], footer[id], main[id] {
@@ -53,9 +56,14 @@ section[id], footer[id], main[id] {
   color: var(--foreground);
 }
 
-a:focus-visible {
+a:focus-visible, button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 5px;
+}
+
+@layer base {
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
 }
 
 @layer components {

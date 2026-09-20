@@ -8,8 +8,8 @@ type EngineeringWorkItemProps = {
 
 export function EngineeringWorkItem({ story, index }: EngineeringWorkItemProps) {
   return (
-    <article aria-labelledby={`${story.id}-heading`} className="grid gap-7 border-t border-border py-10 lg:grid-cols-[3rem_minmax(0,1fr)_17rem] lg:gap-8 lg:py-12">
-      <span aria-hidden="true" className="font-mono text-sm text-muted">
+    <article aria-labelledby={`${story.id}-heading`} className="my-5 grid gap-7 rounded-xl border border-border bg-surface p-5 shadow-[0_16px_40px_-38px_rgba(23,32,51,0.65)] sm:p-8 lg:grid-cols-[2.5rem_minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:gap-8">
+      <span aria-hidden="true" className="font-mono text-sm font-medium text-accent">
         {String(index + 1).padStart(2, "0")}
       </span>
       <div>
