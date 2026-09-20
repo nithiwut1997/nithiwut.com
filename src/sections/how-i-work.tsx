@@ -4,7 +4,7 @@ import { workingPrinciples } from "@/lib/portfolio";
 
 export function HowIWork() {
   return (
-    <section id="approach" aria-labelledby="approach-heading" className="border-t border-border bg-surface-secondary py-16 sm:py-20">
+    <section id="approach" aria-labelledby="approach-heading" className="border-t border-border bg-surface-secondary py-14 sm:py-16">
       <Container>
         <SectionHeading id="approach-heading" number="04" title="How I work" />
         <div className="mt-9 grid gap-8 md:grid-cols-3 md:gap-10">
