@@ -32,7 +32,6 @@ export const profile = {
 
 export const contact = {
   email: "nithiwut.w@gmail.com",
-  phone: "088-607-9220",
 };
 
 export const resume = {
