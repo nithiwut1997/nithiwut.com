@@ -26,6 +26,10 @@ export function EngineeringWorkItem({ story, index }: EngineeringWorkItemProps) 
             <dt className="font-medium">Approach</dt>
             <dd className="mt-1 text-secondary">{story.approach}</dd>
           </div>
+          <div className="border-t border-border py-4 pl-3 sm:pl-4">
+            <dt className="font-semibold text-accent">Why this approach</dt>
+            <dd className="mt-1 text-secondary">{story.rationale}</dd>
+          </div>
           <div className="border-l-2 border-accent bg-accent-subtle/65 px-4 py-3.5">
             <dt className="font-semibold text-accent">Outcome</dt>
             <dd className="mt-1 text-secondary">{story.outcome}</dd>

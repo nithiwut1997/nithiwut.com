@@ -14,8 +14,8 @@ export function EngineeringAreas() {
           description="The areas I work in, and the tools I’ve used along the way."
         />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {engineeringAreas.map((area, index) => (
-            <EngineeringArea key={area.title} area={area} index={index} />
+          {engineeringAreas.map((area) => (
+            <EngineeringArea key={area.title} area={area} />
           ))}
         </div>
       </Container>
