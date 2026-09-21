@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Nithiwut Wilainuch",
   },
   description: seo.description,
-  applicationName: "nithiwut.com",
+  applicationName: "Nithiwut Wilainuch",
   authors: [{ name: profile.name }],
   keywords: [
     "Nithiwut Wilainuch",
@@ -74,6 +74,13 @@ export default function RootLayout({
     sameAs: socialLinks.map((link) => link.href),
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Nithiwut Wilainuch",
+    url: siteUrl,
+  };
+
   return (
     <html lang="en" className="h-full scroll-smooth antialiased">
       <head>
@@ -81,6 +88,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
           }}
         />
       </head>
