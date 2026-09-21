@@ -10,6 +10,7 @@ export type EngineeringStory = {
   category: string;
   context: string;
   approach: string;
+  rationale: string;
   outcome: string;
   consideration: string;
   diagram: { caption: string; steps: readonly string[] };
@@ -91,11 +92,12 @@ export const engineeringStories: readonly EngineeringStory[] = [
     category: "Persistence / performance",
     context: "A backend workflow relied on repetitive JPA operations for high-volume persistence, adding unnecessary ORM overhead to the processing path.",
     approach: "Refactored the high-volume path to use explicit JDBC bulk operations, while keeping the change focused on the workload that needed it.",
+    rationale: "JPA remains useful for general application persistence, but repetitive high-volume operations benefit from more explicit control over batching and SQL execution. JDBC was applied specifically to the workload that needed it rather than replacing JPA across the application.",
     outcome: "Reduced ORM overhead on the high-volume persistence path and made bulk database operations more explicit and appropriate for the workload.",
     consideration: "The access pattern matters as much as the abstraction. Bulk operations address repetitive persistence work; explicit SQL also brings more responsibility for maintaining that path.",
     diagram: {
-      caption: "Persistence path · bulk operations through JDBC",
-      steps: ["Spring Boot", "JPA / JDBC", "PostgreSQL"],
+      caption: "Optimized persistence path · bulk operations through JDBC",
+      steps: ["Spring Boot", "JDBC Bulk Operations", "PostgreSQL"],
     },
   },
   {
@@ -104,6 +106,7 @@ export const engineeringStories: readonly EngineeringStory[] = [
     category: "Background workloads / queues",
     context: "Large report and data exports take longer than a typical API request should remain open.",
     approach: "Used AWS SQS to queue export work for background workers, separating processing from the HTTP request-response lifecycle.",
+    rationale: "Export generation can outlive a normal HTTP request. Queueing the work through SQS separates request acceptance from processing and avoids keeping the request open while the export is generated.",
     outcome: "Moved long-running export processing outside the HTTP request lifecycle, allowing the API request and background processing to be handled independently.",
     consideration: "Accepting a request and completing an export are separate events. The workflow needs a clear way to represent the result and its processing status.",
     diagram: {
@@ -117,6 +120,7 @@ export const engineeringStories: readonly EngineeringStory[] = [
     category: "Media processing / AWS",
     context: "Original vehicle images are larger than necessary for many marketplace views, adding avoidable bandwidth to image delivery.",
     approach: "Used S3 upload events to trigger Lambda processing that resizes images and creates WebP variants.",
+    rationale: "Image transformation does not need to block the upload flow. Triggering processing from the uploaded object keeps resizing outside the main request path while allowing reusable image variants to be generated independently.",
     outcome: "Produced resized WebP image variants after upload without adding image transformation work to the main request path.",
     consideration: "Processing after upload keeps transformation out of the main request path. Reusable, presentation-ready variants make image delivery more efficient.",
     diagram: {
