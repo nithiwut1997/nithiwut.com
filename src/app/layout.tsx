@@ -43,13 +43,11 @@ export const metadata: Metadata = {
     siteName: profile.name,
     locale: "en_US",
     type: "website",
-    images: [seo.image],
   },
   twitter: {
     card: "summary_large_image",
     title: seo.title,
     description: seo.description,
-    images: [seo.image],
   },
   robots: {
     index: true,
