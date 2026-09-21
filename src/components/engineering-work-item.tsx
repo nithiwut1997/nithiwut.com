@@ -8,12 +8,12 @@ type EngineeringWorkItemProps = {
 
 export function EngineeringWorkItem({ story, index }: EngineeringWorkItemProps) {
   return (
-    <article aria-labelledby={`${story.id}-heading`} className="my-5 grid gap-7 rounded-xl border border-border bg-surface p-5 shadow-[0_18px_45px_-36px_rgba(23,32,51,0.55)] sm:p-7 lg:grid-cols-[2.25rem_minmax(0,1fr)_minmax(22rem,1fr)] lg:gap-7">
+    <article aria-labelledby={`${story.id}-heading`} className="grid gap-6 rounded-xl border border-border bg-surface p-5 shadow-[0_18px_45px_-36px_rgba(23,32,51,0.55)] sm:p-7 lg:grid-cols-[2.25rem_minmax(0,1fr)_minmax(22rem,1fr)] lg:gap-7">
       <span aria-hidden="true" className="font-mono text-sm font-medium text-accent">
         {String(index + 1).padStart(2, "0")}
       </span>
       <div>
-        <p className="font-mono text-xs text-accent">{story.category}</p>
+        <p className="font-mono text-xs font-medium tracking-[0.04em] text-accent">{story.category}</p>
         <h3 id={`${story.id}-heading`} className="mt-3 text-2xl font-medium leading-snug tracking-tight">
           {story.title}
         </h3>
@@ -25,6 +25,10 @@ export function EngineeringWorkItem({ story, index }: EngineeringWorkItemProps) 
           <div className="border-t border-border py-4">
             <dt className="font-medium">Approach</dt>
             <dd className="mt-1 text-secondary">{story.approach}</dd>
+          </div>
+          <div className="border-l-2 border-accent bg-accent-subtle/65 px-4 py-3.5">
+            <dt className="font-semibold text-accent">Outcome</dt>
+            <dd className="mt-1 text-secondary">{story.outcome}</dd>
           </div>
           <div className="border-t border-border pt-4">
             <dt className="font-medium">Engineering considerations</dt>

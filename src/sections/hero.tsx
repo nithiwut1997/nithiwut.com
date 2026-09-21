@@ -35,7 +35,7 @@ export function Hero() {
         </div>
         <aside aria-label="Technical stack system view" className="overflow-hidden rounded-xl border border-border bg-surface shadow-[0_22px_50px_-34px_rgba(23,32,51,0.45)]">
           <div className="flex items-center justify-between border-b border-border bg-surface-secondary/60 px-5 py-4 sm:px-6">
-            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.16em] text-accent">Technical stack / system view</p>
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-accent">Technical stack / system view</p>
             <span className="flex items-center gap-2 font-mono text-[0.65rem] text-muted"><span className="h-1.5 w-1.5 rounded-full bg-accent" />Production</span>
           </div>
           <ol className="px-5 py-5 sm:px-6 sm:py-6">
