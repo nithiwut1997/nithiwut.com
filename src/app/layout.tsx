@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { SiteHeader } from "@/components/site-header";
+import { profile, socialLinks } from "@/lib/portfolio";
+import { seo, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -8,42 +10,44 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nithiwut.com"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Nithiwut Wilainuch | Senior Software Engineer",
+    default: seo.title,
     template: "%s | Nithiwut Wilainuch",
   },
-  description:
-    "Nithiwut Wilainuch, Senior Software Engineer. Backend-focused engineering across banking and startup environments, from application code and data to production operations.",
+  description: seo.description,
   applicationName: "nithiwut.com",
-  authors: [{ name: "Nithiwut Wilainuch" }],
+  authors: [{ name: profile.name }],
   keywords: [
     "Nithiwut Wilainuch",
-    "Backend Engineer",
     "Senior Software Engineer",
-    "Java Engineer",
+    "Backend Engineer",
+    "Java",
     "Spring Boot",
-    "RESTful APIs",
-    "Cloud Architecture",
-    "Platform Engineering",
     "AWS",
     "Kubernetes",
-    "Event-Driven Architecture",
+    "PostgreSQL",
+    "Software Engineer Thailand",
+    "Backend Engineer Thailand",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+  },
   openGraph: {
-    title: "Nithiwut Wilainuch | Senior Software Engineer",
-    description:
-      "Backend-focused engineering portfolio covering Java, Spring Boot, AWS, cloud-native systems, and production reliability.",
-    url: "https://nithiwut.com",
-    siteName: "nithiwut.com",
+    title: seo.title,
+    description: seo.description,
+    url: siteUrl,
+    siteName: profile.name,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nithiwut Wilainuch | Senior Software Engineer",
-    description:
-      "Backend-focused engineering portfolio covering Java, Spring Boot, AWS, cloud-native systems, and production reliability.",
+    title: seo.title,
+    description: seo.description,
   },
   robots: {
     index: true,
@@ -56,8 +60,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: profile.name,
+    url: siteUrl,
+    jobTitle: profile.role,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bangkok",
+      addressCountry: "Thailand",
+    },
+    sameAs: socialLinks.map((link) => link.href),
+  };
+
   return (
     <html lang="en" className="h-full scroll-smooth antialiased">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      </head>
       <body className="min-h-full bg-background text-foreground">
         <a
           href="#main"
