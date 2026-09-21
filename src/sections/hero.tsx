@@ -19,8 +19,8 @@ export function Hero() {
             {profile.name}
           </h1>
           <p className="mt-5 text-xl font-medium text-secondary sm:text-2xl">{profile.role}</p>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-secondary sm:text-xl sm:leading-9">{profile.summary}</p>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-secondary">{profile.supporting}</p>
+          <p className="mt-8 max-w-2xl text-lg font-medium leading-8 text-foreground sm:text-xl sm:leading-9">{profile.summary}</p>
+          <p className="mt-5 max-w-2xl text-sm leading-7 text-secondary sm:text-base">{profile.supporting}</p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 sm:mt-9">
             {socialLinks.map((link) => (
               <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="text-link inline-flex min-h-11 items-center gap-1.5 text-sm">

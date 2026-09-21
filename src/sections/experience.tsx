@@ -12,7 +12,10 @@ export function Experience() {
             <article key={item.company} className="relative grid gap-4 border-t border-border py-6 pl-8 first:border-t-0 first:pt-0 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] md:gap-10">
               <span aria-hidden="true" className={`absolute left-0 top-9 h-[11px] w-[11px] rounded-full border-2 border-surface ${index === 0 ? "bg-accent ring-4 ring-accent-subtle" : "bg-diagram-border"} first:top-1`} />
               <div>
-                <p className="font-mono text-xs text-muted">{item.period}</p>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <p className="font-mono text-xs text-muted">{item.period}</p>
+                  {index === 0 ? <span className="rounded-full border border-diagram-border px-2 py-0.5 font-mono text-[0.65rem] font-medium uppercase tracking-[0.06em] text-accent">Current</span> : null}
+                </div>
                 <h3 className={`mt-3 max-w-sm leading-7 ${index === 0 ? "text-2xl font-semibold" : "text-xl font-medium"}`}>{item.company}</h3>
                 <p className="mt-2 text-sm text-secondary">{item.role}</p>
               </div>

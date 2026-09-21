@@ -6,18 +6,20 @@ export function ContactFooter() {
   return (
     <footer id="contact" aria-labelledby="contact-heading" className="bg-foreground pt-16 text-white [--secondary:#b9c5d1] [--muted:#95a5b5] sm:pt-20">
       <Container>
-        <div className="pb-14">
-          <div className="max-w-2xl">
-            <SectionHeading
-              id="contact-heading"
-              number="06"
-              title="Get in touch"
-              description="For conversations about backend engineering, production systems, or opportunities to work together."
-            />
-            <a href={`mailto:${contact.email}`} className="mt-6 inline-flex min-h-11 items-center break-all text-xl text-white underline decoration-white/25 underline-offset-4 transition-colors hover:text-[#c8ddeb] sm:text-2xl">
-              {contact.email}
-            </a>
-            <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm">
+        <div className="pb-12 sm:pb-14">
+          <div className="grid gap-7 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-12">
+            <div className="max-w-2xl">
+              <SectionHeading
+                id="contact-heading"
+                number="06"
+                title="Get in touch"
+                description="For conversations about backend engineering, production systems, or opportunities to work together."
+              />
+              <a href={`mailto:${contact.email}`} className="mt-7 inline-flex min-h-11 items-center break-all text-2xl font-medium tracking-tight text-white underline decoration-white/25 underline-offset-6 transition-colors hover:text-[#c8ddeb] sm:text-3xl">
+                {contact.email}
+              </a>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm sm:justify-end">
               {socialLinks.map((link) => (
                 <a
                   key={link.href}
