@@ -6,7 +6,7 @@ import { engineeringNotes, engineeringStories } from "@/lib/portfolio";
 
 export function EngineeringWork() {
   return (
-    <section id="work" aria-labelledby="work-heading" className="border-t border-border bg-background py-14 sm:py-16">
+    <section data-reveal id="work" aria-labelledby="work-heading" className="border-t border-border bg-background py-14 sm:py-16">
       <Container>
         <SectionHeading
           id="work-heading"

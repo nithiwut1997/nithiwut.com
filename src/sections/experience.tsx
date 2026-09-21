@@ -4,7 +4,7 @@ import { experience } from "@/lib/portfolio";
 
 export function Experience() {
   return (
-    <section id="experience" aria-labelledby="experience-heading" className="border-t border-border bg-surface py-14 sm:py-16">
+    <section data-reveal id="experience" aria-labelledby="experience-heading" className="border-t border-border bg-surface py-14 sm:py-16">
       <Container>
         <SectionHeading id="experience-heading" number="03" title="Professional experience" />
         <div className="relative mt-8 before:absolute before:bottom-8 before:left-[5px] before:top-8 before:w-px before:bg-border">

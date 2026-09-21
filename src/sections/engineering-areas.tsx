@@ -5,7 +5,7 @@ import { engineeringAreas } from "@/lib/portfolio";
 
 export function EngineeringAreas() {
   return (
-    <section id="areas" aria-labelledby="areas-heading" className="border-t border-border bg-surface-secondary/50 py-14 sm:py-16">
+    <section data-reveal id="areas" aria-labelledby="areas-heading" className="border-t border-border bg-surface-secondary/50 py-14 sm:py-16">
       <Container>
         <SectionHeading
           id="areas-heading"
