@@ -1,6 +1,5 @@
 import { Container } from "@/components/container";
-import { LinkButton } from "@/components/link-button";
-import { profile, resume, socialLinks } from "@/lib/portfolio";
+import { profile, socialLinks } from "@/lib/portfolio";
 
 export function Hero() {
   const systemLayers = [
@@ -12,7 +11,7 @@ export function Hero() {
   ] as const;
 
   return (
-    <section aria-labelledby="profile-name" className="bg-background py-14 text-foreground sm:py-20 lg:py-24">
+    <section aria-labelledby="profile-name" className="bg-background py-12 text-foreground sm:py-20 lg:py-24">
       <Container className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(24rem,0.9fr)] lg:gap-12">
         <div>
           <p className="mb-6 font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">Backend engineer</p>
@@ -22,14 +21,12 @@ export function Hero() {
           <p className="mt-5 text-xl font-medium text-secondary sm:text-2xl">{profile.role}</p>
           <p className="mt-8 max-w-2xl text-lg leading-8 text-secondary sm:text-xl sm:leading-9">{profile.summary}</p>
           <p className="mt-4 max-w-2xl text-base leading-7 text-secondary">{profile.supporting}</p>
-          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <LinkButton href={resume.href} download>{resume.label} <span aria-hidden="true">↓</span></LinkButton>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 sm:mt-9">
             {socialLinks.map((link) => (
               <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="text-link inline-flex min-h-11 items-center gap-1.5 text-sm">
                 {link.label} <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span>
               </a>
             ))}
-            <a href="#contact" className="text-link inline-flex min-h-11 items-center text-sm">Contact</a>
           </div>
           <p className="mt-7 flex items-center gap-2 font-mono text-xs text-muted"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />{profile.location}</p>
         </div>
