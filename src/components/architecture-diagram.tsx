@@ -17,7 +17,7 @@ export function ArchitectureDiagram({
       <ol aria-label={caption} className="flex flex-col sm:flex-row sm:items-stretch">
         {steps.map((step, index) => (
           <li key={step} className="flex min-w-0 flex-1 flex-col items-center sm:flex-row">
-            <span className={`relative w-full rounded-md border border-diagram-border bg-surface text-center font-mono text-xs font-semibold leading-4 text-foreground shadow-[0_6px_16px_-12px_rgba(23,32,51,0.8)] ${compact ? "px-2 py-2.5" : "px-3 py-3.5"}`}>
+            <span className={`diagram-node relative w-full rounded-md border border-diagram-border bg-surface text-center font-mono text-xs font-semibold leading-4 text-foreground shadow-[0_6px_16px_-12px_rgba(23,32,51,0.8)] ${compact ? "px-2 py-2.5" : "px-3 py-3.5"}`}>
               <span aria-hidden="true" className="absolute left-2 top-2 h-1 w-1 rounded-full bg-accent" />{step}</span>
             {index < steps.length - 1 ? (
               <span aria-hidden="true" className="shrink-0 py-1 font-mono text-sm font-semibold text-diagram-connector sm:px-2 sm:py-0">

@@ -79,6 +79,28 @@ a:focus-visible, button:focus-visible {
     color: var(--accent-hover);
     text-decoration-color: currentColor;
   }
+
+  .diagram-node {
+    transition: border-color 180ms ease, background-color 180ms ease;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .diagram-node:hover {
+    border-color: var(--accent);
+    background-color: var(--accent-subtle);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready [data-reveal]:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .reveal-ready [data-reveal] {
+    transition: opacity 420ms ease-out, transform 420ms ease-out;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -86,5 +108,6 @@ a:focus-visible, button:focus-visible {
   *, *::before, *::after {
     scroll-behavior: auto !important;
     transition-duration: 0s !important;
+    animation-duration: 0s !important;
   }
 }

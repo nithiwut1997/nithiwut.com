@@ -11,10 +11,10 @@ export function Hero() {
   ] as const;
 
   return (
-    <section aria-labelledby="profile-name" className="bg-background py-12 text-foreground sm:py-20 lg:py-24">
+    <section data-reveal aria-labelledby="profile-name" className="bg-background py-12 text-foreground sm:py-20 lg:py-24">
       <Container className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(24rem,0.9fr)] lg:gap-12">
         <div>
-          <p className="mb-6 font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">Backend engineer</p>
+          <p className="mb-6 font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">Software engineering portfolio</p>
           <h1 id="profile-name" className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] sm:text-5xl lg:text-[3.75rem]">
             {profile.name}
           </h1>
@@ -42,7 +42,7 @@ export function Hero() {
                   <span className="z-10 h-2 w-2 rounded-full bg-accent ring-4 ring-accent-subtle" />
                   {index < systemLayers.length - 1 ? <span aria-hidden="true" className="absolute bottom-0 top-3 w-px bg-diagram-border" /> : null}
                 </div>
-                <div className="rounded-md border border-border/80 bg-background/70 px-4 py-3"><p className="text-sm font-medium text-foreground">{layer}</p><p className="mt-1 text-sm leading-6 text-secondary">{tools}</p></div>
+                <div className="diagram-node rounded-md border border-border/80 bg-background/70 px-4 py-3"><p className="text-sm font-medium text-foreground">{layer}</p><p className="mt-1 text-sm leading-6 text-secondary">{tools}</p></div>
               </li>
             ))}
           </ol>

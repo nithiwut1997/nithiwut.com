@@ -1,4 +1,5 @@
 import { ContactFooter } from "@/sections/contact-footer";
+import { SectionRevealController } from "@/components/section-reveal-controller";
 import { Education } from "@/sections/education";
 import { Experience } from "@/sections/experience";
 import { Hero } from "@/sections/hero";
@@ -9,6 +10,7 @@ import { HowIWork } from "@/sections/how-i-work";
 export default function Home() {
   return (
     <>
+      <SectionRevealController />
       <main id="main" tabIndex={-1}>
         <Hero />
         <EngineeringAreas />
