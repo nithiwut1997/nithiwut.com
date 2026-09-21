@@ -1,25 +1,21 @@
-import { About } from "@/sections/about";
 import { ContactFooter } from "@/sections/contact-footer";
 import { Education } from "@/sections/education";
 import { Experience } from "@/sections/experience";
 import { Hero } from "@/sections/hero";
-import { InfrastructureArchitecture } from "@/sections/infrastructure-architecture";
-import { Projects } from "@/sections/projects";
-import { ResumeCta } from "@/sections/resume-cta";
-import { Skills } from "@/sections/skills";
+import { EngineeringAreas } from "@/sections/engineering-areas";
+import { EngineeringWork } from "@/sections/engineering-work";
+import { HowIWork } from "@/sections/how-i-work";
 
 export default function Home() {
   return (
     <>
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <Hero />
-        <About />
-        <Skills />
+        <EngineeringAreas />
+        <EngineeringWork />
         <Experience />
-        <Projects />
-        <InfrastructureArchitecture />
+        <HowIWork />
         <Education />
-        <ResumeCta />
       </main>
       <ContactFooter />
     </>

@@ -1,0 +1,22 @@
+import { Container } from "@/components/container";
+import { SectionHeading } from "@/components/section-heading";
+import { workingPrinciples } from "@/lib/portfolio";
+
+export function HowIWork() {
+  return (
+    <section id="approach" aria-labelledby="approach-heading" className="border-t border-border bg-surface-secondary py-14 sm:py-16">
+      <Container>
+        <SectionHeading id="approach-heading" number="04" title="How I work" />
+        <div className="mt-9 grid gap-8 md:grid-cols-3 md:gap-10">
+          {workingPrinciples.map((principle, index) => (
+            <div key={principle.title} className="border-t border-diagram-border pt-5">
+              <p className="font-mono text-xs text-accent">0{index + 1}</p>
+              <h3 className="mt-5 text-base font-semibold">{principle.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-secondary">{principle.description}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}

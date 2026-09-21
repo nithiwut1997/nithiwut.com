@@ -1,194 +1,34 @@
 # nithiwut.com
 
-Personal portfolio website for Nithiwut Wilainuch.
+Personal portfolio for Nithiwut Wilainuch, Senior Software Engineer. A light, warm editorial layout focused on backend engineering and hands-on production work.
 
-A modern engineering portfolio focused on:
+## Stack
 
-- Backend Engineering
-- Cloud Architecture
-- Platform Engineering
-- Scalable Systems
-- AWS & Kubernetes
+Next.js App Router, React, strict TypeScript, and Tailwind CSS. All portfolio components render on the server; there are no animation or diagram dependencies.
 
-Built with a premium minimal design inspired by modern engineering-focused portfolios.
+## Content and sections
 
----
+Content is centralized in `src/lib/portfolio.ts`:
 
-# About
+1. Hero ? professional introduction and compact contact links.
+2. Engineering Areas ? six groups of experience and supporting technologies.
+3. Engineering Work ? three featured stories and two shorter notes, with relevant workflow diagrams.
+4. Professional Experience ? concise employment history.
+5. How I Work ? practical engineering principles.
+6. Education ? degree and senior project.
+7. Contact / Resume ? contact details and the detailed career document.
 
-Senior Software Engineer with experience building scalable backend systems in banking and startup environments.
+`EngineeringArea`, `EngineeringWorkItem`, and `ArchitectureDiagram` are reusable components in `src/components`. Diagrams use semantic HTML ordered lists. Shared colors live in `src/app/globals.css`.
 
-Experienced in:
-
-- Java Spring Boot
-- AWS cloud services
-- Kubernetes environments
-- Distributed workflows
-- CI/CD pipelines
-- Backend platform engineering
-
-Currently working on large-scale used-car marketplace systems within the banking domain.
-
----
-
-# Tech Stack
-
-## Frontend
-
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-
-## Backend Knowledge
-
-- Java
-- Spring Boot
-- Python
-- Node.js
-
-## Cloud & DevOps
-
-- AWS
-- Docker
-- Kubernetes
-- Jenkins
-- GitLab CI/CD
-
-## Database & Search
-
-- PostgreSQL
-- MySQL
-- Redis
-- Elasticsearch
-
----
-
-# Features
-
-## Core Features
-
-- Modern responsive portfolio
-- Premium dark-mode UI
-- Smooth page animations
-- Downloadable resume
-- Project showcase
-- Experience timeline
-- Technical skills overview
-- SEO optimization
-- Mobile-first responsive design
-
----
-
-# Sections
-
-## Hero
-
-- Professional introduction
-- Current role
-- CTA buttons
-- Social links
-
-## About
-
-- Career summary
-- Engineering background
-- Technical focus
-
-## Experience
-
-Professional experience timeline including:
-
-- ttb bank
-- Purple Ventures
-- Institute of Public Policy and Development
-
-## Skills
-
-- Backend
-- Cloud
-- DevOps
-- Frontend
-- Databases
-
-## Projects
-
-Featured engineering and personal projects.
+Keep claims grounded in the existing career content and supplied resume information. The redesign brief supplies the centralized logging context; it does not imply ownership of the ELK infrastructure. Engineering considerations describe tradeoffs, not unverified implementation details or measured outcomes.
 
 ## Resume
 
-Downloadable PDF resume.
+The existing PDF is preserved at `public/Nithiwut_Wilainuch_Resume.pdf`. Both download links use the centralized `resume` entry in `src/lib/portfolio.ts`.
 
-## Contact
+## Accessibility
 
-- LinkedIn
-- GitHub
-- Email
-
----
-
-# Resume
-
-Resume file location:
-
-```bash
-/public/resume.pdf
-```
-
-Future enhancement:
-
-- Move resume hosting to AWS S3 + CloudFront
-
----
-
-# Design Goals
-
-- Clean and minimal
-- Recruiter-friendly
-- Fast loading
-- Premium engineering aesthetic
-- Professional personal branding
-- Smooth user experience
-
----
-
-# Performance Goals
-
-- Lighthouse score 90+
-- Optimized assets
-- Fast CDN delivery
-- SEO metadata optimization
-- Mobile performance optimization
-
----
-
-# Planned Features
-
-- Blog section
-- AI assistant integration
-- Visitor analytics
-- Interactive terminal UI
-- Multi-language support
-- Dynamic project management
-- Theme customization
-
----
-
-# Project Structure
-
-```bash
-/public
-
-/src
-  /app
-  /components
-  /sections
-  /hooks
-  /lib
-  /styles
-  /types
-  /utils
-```
+The layout includes semantic landmarks, a keyboard skip link, visible focus outlines, named sections, and reduced-motion scrolling. Diagrams preserve their reading order when stacked on mobile.
 
 ---
 
@@ -318,18 +158,6 @@ npm run build
 ```bash
 Node.js >= 20
 ```
-
----
-
-# Inspiration
-
-Inspired by:
-
-- Vercel
-- Linear
-- Stripe
-- Modern SaaS engineering websites
-- Minimal developer portfolios
 
 ---
 

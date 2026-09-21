@@ -1,156 +1,54 @@
 import { Container } from "@/components/container";
 import { LinkButton } from "@/components/link-button";
-import {
-  contactLinks,
-  currentEngineeringScope,
-  heroStats,
-  productionStack,
-  profile,
-  socialLinks,
-} from "@/lib/portfolio";
+import { profile, resume, socialLinks } from "@/lib/portfolio";
 
 export function Hero() {
+  const systemLayers = [
+    ["Application", "Java · Spring Boot"],
+    ["Data", "PostgreSQL · Redis · Elasticsearch"],
+    ["Messaging", "AWS SQS · EventBridge"],
+    ["Infrastructure", "AWS · Kubernetes · Docker"],
+    ["Observability", "Logstash · Elasticsearch · Kibana"],
+  ] as const;
+
   return (
-    <section className="border-b border-white/10 py-20 sm:py-24 lg:py-28">
-      <Container className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
-        <div className="animate-fade-up">
-          <p className="mb-5 text-sm font-semibold uppercase text-emerald-300">
-            {profile.role}
-          </p>
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+    <section aria-labelledby="profile-name" className="bg-background py-14 text-foreground sm:py-20 lg:py-24">
+      <Container className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(24rem,0.9fr)] lg:gap-12">
+        <div>
+          <p className="mb-6 font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">Backend engineer</p>
+          <h1 id="profile-name" className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] sm:text-5xl lg:text-[3.75rem]">
             {profile.name}
           </h1>
-          <p className="mt-6 max-w-2xl text-xl leading-9 text-zinc-300 sm:text-2xl">
-            {profile.focus}
-          </p>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg">
-            {profile.summary}
-          </p>
-          <p className="mt-5 font-mono text-sm text-zinc-500">
-            {profile.location}
-          </p>
-
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <LinkButton href="/Nithiwut_Wilainuch_Resume.pdf" download>
-              Download resume
-            </LinkButton>
-            <LinkButton href="#highlights" variant="secondary">
-              View engineering highlights
-            </LinkButton>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3 text-sm text-zinc-400">
-            {[...contactLinks, ...socialLinks].map((link) => {
-              const label =
-                "value" in link && typeof link.value === "string"
-                  ? link.value
-                  : link.label;
-
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    link.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="font-medium transition hover:text-emerald-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300"
-                >
-                  {label}
-                </a>
-              );
-            })}
-          </div>
-        </div>
-
-        <aside
-          className="animate-fade-up animation-delay-100 rounded-lg border border-white/10 bg-panel/[0.88] p-5 shadow-2xl shadow-black/40"
-          aria-label="Engineering focus summary"
-        >
-          <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-5">
-            <div>
-              <p className="font-mono text-xs text-zinc-500">
-                portfolio/status
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold text-white">
-                Backend systems
-              </h2>
-            </div>
-            <div className="flex items-center gap-2 rounded-lg border border-emerald-300/20 bg-emerald-300/10 px-3 py-2 text-xs font-semibold text-emerald-200">
-              <span className="status-dot h-2 w-2 rounded-full bg-emerald-300" />
-              Available
-            </div>
-          </div>
-
-          <dl className="grid grid-cols-1 border-b border-white/10 sm:grid-cols-3">
-            {heroStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="border-white/10 py-5 sm:border-r sm:px-4 last:sm:border-r-0"
-              >
-                <dt className="text-xs text-zinc-500">{stat.label}</dt>
-                <dd className="mt-2 font-mono text-sm font-semibold text-zinc-100">
-                  {stat.value}
-                </dd>
-              </div>
+          <p className="mt-5 text-xl font-medium text-secondary sm:text-2xl">{profile.role}</p>
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-secondary sm:text-xl sm:leading-9">{profile.summary}</p>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-secondary">{profile.supporting}</p>
+          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <LinkButton href={resume.href} download>{resume.label} <span aria-hidden="true">↓</span></LinkButton>
+            {socialLinks.map((link) => (
+              <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="text-link inline-flex min-h-11 items-center gap-1.5 text-sm">
+                {link.label} <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span>
+              </a>
             ))}
-          </dl>
-
-          <div className="py-6">
-            <p className="font-mono text-xs uppercase text-zinc-500">
-                Current engineering scope
-            </p>
-
-            <div className="mt-4 divide-y divide-white/10 border-y border-white/10">
-              {currentEngineeringScope.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="grid gap-3 py-4 sm:grid-cols-[2.25rem_1fr]"
-                >
-                  <span className="font-mono text-xs font-semibold text-emerald-300">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h3 className="text-sm font-semibold text-zinc-100">
-                        {item.title}
-                      </h3>
-                      <span className="font-mono text-xs text-zinc-500">
-                        {item.tag}
-                      </span>
-                    </div>
-                    <p className="mt-2 text-sm leading-6 text-zinc-400">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-5">
-              <p className="font-mono text-xs uppercase text-zinc-500">
-                Production stack
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {productionStack.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-lg border border-white/10 bg-white/[0.035] px-3 py-2 text-xs font-medium text-zinc-300"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <a href="#contact" className="text-link inline-flex min-h-11 items-center text-sm">Contact</a>
           </div>
-
-          <div className="surface-line h-px" />
-          <p className="pt-5 font-mono text-sm leading-7 text-zinc-400">
-            focus: backend delivery / cloud-native workflows / production
-            reliability
-          </p>
+          <p className="mt-7 flex items-center gap-2 font-mono text-xs text-muted"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />{profile.location}</p>
+        </div>
+        <aside aria-label="Technical stack system view" className="overflow-hidden rounded-xl border border-border bg-surface shadow-[0_22px_50px_-34px_rgba(23,32,51,0.45)]">
+          <div className="flex items-center justify-between border-b border-border bg-surface-secondary/60 px-5 py-4 sm:px-6">
+            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.16em] text-accent">Technical stack / system view</p>
+            <span className="flex items-center gap-2 font-mono text-[0.65rem] text-muted"><span className="h-1.5 w-1.5 rounded-full bg-accent" />Production</span>
+          </div>
+          <ol className="px-5 py-5 sm:px-6 sm:py-6">
+            {systemLayers.map(([layer, tools], index) => (
+              <li key={layer} className="relative grid grid-cols-[1rem_1fr] gap-3 pb-5 last:pb-0">
+                <div className="relative flex justify-center pt-1.5">
+                  <span className="z-10 h-2 w-2 rounded-full bg-accent ring-4 ring-accent-subtle" />
+                  {index < systemLayers.length - 1 ? <span aria-hidden="true" className="absolute bottom-0 top-3 w-px bg-diagram-border" /> : null}
+                </div>
+                <div className="rounded-md border border-border/80 bg-background/70 px-4 py-3"><p className="text-sm font-medium text-foreground">{layer}</p><p className="mt-1 text-sm leading-6 text-secondary">{tools}</p></div>
+              </li>
+            ))}
+          </ol>
         </aside>
       </Container>
     </section>

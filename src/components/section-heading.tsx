@@ -1,20 +1,28 @@
 type SectionHeadingProps = {
-  eyebrow: string;
+  id: string;
+  number: string;
   title: string;
   description?: string;
 };
 
 export function SectionHeading({
-  eyebrow,
+  id,
+  number,
   title,
   description,
 }: SectionHeadingProps) {
   return (
-    <div className="max-w-3xl">
-      <p className="mb-4 text-sm font-semibold uppercase text-emerald-300">{eyebrow}</p>
-      <h2 className="text-3xl font-semibold text-white sm:text-4xl">{title}</h2>
+    <div className="max-w-2xl">
+      <div className="flex items-baseline gap-4">
+        <span aria-hidden="true" className="font-mono text-xs text-accent">
+          {number}
+        </span>
+        <h2 id={id} className="text-2xl font-medium tracking-tight sm:text-3xl">
+          {title}
+        </h2>
+      </div>
       {description ? (
-        <p className="mt-5 text-base leading-8 text-zinc-400 sm:text-lg">{description}</p>
+        <p className="mt-4 text-base leading-7 text-secondary">{description}</p>
       ) : null}
     </div>
   );
