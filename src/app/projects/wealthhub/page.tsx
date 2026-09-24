@@ -42,12 +42,12 @@ const valuationMeasures = [
 export const metadata: Metadata = {
   title: "WealthHub case study",
   description:
-    "A backend engineering case study covering WealthHub's investment domain, transactional ledger processing, valuation, and modular-monolith architecture.",
+    "A backend engineering case study covering WealthHub's investment domain, transactional ledger recording, portfolio valuation, and modular-monolith architecture.",
   alternates: { canonical: "/projects/wealthhub" },
   openGraph: {
     title: "WealthHub backend engineering case study",
     description:
-      "Transaction processing, portfolio valuation, market-data boundaries, and the reasoning behind an intentionally simple architecture.",
+      "Recorded investment transactions, portfolio valuation, market-data boundaries, and the reasoning behind an intentionally simple architecture.",
     url: "/projects/wealthhub",
     type: "article",
   },
@@ -83,7 +83,7 @@ export default function WealthHubPage() {
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-accent">Backend engineering case study</p>
             <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em] sm:text-6xl lg:text-7xl">WealthHub</h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-secondary sm:text-2xl sm:leading-9">
-              A personal investment portfolio and wealth tracking backend built around a transaction ledger, consistent open positions, and explainable valuation.
+              A personal investment portfolio and wealth tracking system built around a transaction ledger, consistent open positions, and explainable valuation. BUY and SELL entries record investment activity that happened elsewhere; WealthHub does not execute orders.
             </p>
           </div>
           <ul aria-label="Technology stack" className="mt-8 flex flex-wrap gap-x-5 gap-y-2 font-mono text-sm text-muted">
@@ -109,7 +109,7 @@ export default function WealthHubPage() {
             <SectionIntro
               eyebrow="01 / What I built"
               title="More than a CRUD portfolio"
-              description="WealthHub models the relationship between investment activity, current positions, historical prices, and portfolio value. Its central concern is keeping the ledger and derived state correct as trades change a position."
+              description="WealthHub models the relationship between recorded investment activity, current positions, historical prices, and portfolio value. Its central concern is keeping the transaction ledger and derived holdings consistent as BUY and SELL records change a position."
             />
             <p className="mt-5 max-w-3xl text-sm leading-6 text-muted">
               AI-assisted development was part of the implementation workflow; architecture, domain decisions, review, and validation remained part of my engineering process.
@@ -119,7 +119,7 @@ export default function WealthHubPage() {
             <article className="rounded-lg border border-border bg-background p-5">
               <p className="font-mono text-xs uppercase tracking-[0.08em] text-accent">Write model</p>
               <h3 className="mt-3 text-lg font-medium">Transaction ledger</h3>
-              <p className="mt-2 text-sm leading-7 text-secondary">BUY and SELL transactions remain the historical record and source of truth.</p>
+              <p className="mt-2 text-sm leading-7 text-secondary">Recorded BUY and SELL transactions remain the historical record and source of truth.</p>
             </article>
             <article className="rounded-lg border border-border bg-background p-5">
               <p className="font-mono text-xs uppercase tracking-[0.08em] text-accent">Current state</p>
@@ -135,8 +135,11 @@ export default function WealthHubPage() {
           <SectionIntro
             eyebrow="02 / Domain model"
             title="A ledger, a derived position, and a valuation"
-            description="The model separates facts about investment activity from the current position and from price-dependent calculations. A Portfolio groups the assets, transactions, holdings, and valuations that belong to it."
+            description="The model separates recorded investment activity from the current position and from price-dependent calculations. In the current implementation, a Portfolio groups the assets, transactions, holdings, and valuations that belong to it."
           />
+          <p className="mt-5 max-w-3xl text-sm leading-6 text-muted">
+            The product direction is to track investments across multiple portfolios and eventually provide a consolidated wealth view. All-portfolio aggregation is future work rather than a capability of the current implementation.
+          </p>
           <figure className="mt-8 overflow-hidden rounded-xl border border-diagram-border bg-surface-secondary p-5 sm:p-7">
             <figcaption className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-secondary">Portfolio domain</figcaption>
             <div className="mt-5 grid gap-3 md:grid-cols-[0.75fr_auto_1fr_auto_1fr] md:items-center">
@@ -165,8 +168,8 @@ export default function WealthHubPage() {
         <Container>
           <SectionIntro
             eyebrow="03 / Transaction & consistency"
-            title="Every trade updates history and current state together"
-            description="POST /api/v1/transactions processes BUY and SELL operations transactionally. The ledger preserves what happened; the Holding captures what remains open."
+            title="Every recorded transaction updates history and current holdings together"
+            description="POST /api/v1/transactions records BUY and SELL investment activity transactionally. These entries describe activity completed outside WealthHub: the ledger preserves what happened, while the Holding captures what remains open."
           />
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             <article className="rounded-xl border border-border bg-background p-6 sm:p-7">
@@ -200,7 +203,7 @@ export default function WealthHubPage() {
             <SectionIntro
               eyebrow="04 / Valuation"
               title="Prices remain historical; valuations use the latest available"
-              description="Each holding valuation combines the open position with the latest known AssetPrice. Portfolio valuation aggregates those position-level results."
+              description="Each holding valuation combines the open position with the latest known AssetPrice. Portfolio valuation aggregates those position-level results; daily or end-of-day prices are sufficient because prices support valuation, not order execution."
             />
             <dl className="mt-7">
               {valuationMeasures.map(([term, detail]) => (
@@ -224,7 +227,7 @@ export default function WealthHubPage() {
           <SectionIntro
             eyebrow="05 / Market data"
             title="External data stays behind a provider boundary"
-            description="MarketDataProvider separates provider-specific retrieval from portfolio logic. Price refresh is explicit and manual, keeping the current workflow visible and controlled."
+            description="MarketDataProvider separates provider-specific retrieval from portfolio logic. Prices and NAV are inputs to portfolio valuation, and the current explicit, manual refresh supports the product without requiring real-time data."
           />
           <div className="mt-8 grid gap-3 md:grid-cols-[1fr_auto_1fr] md:items-stretch">
             <div className="rounded-lg border border-border bg-background p-5">
@@ -251,7 +254,7 @@ export default function WealthHubPage() {
           <div>
             <div className="border-t border-border py-5">
               <h3 className="font-medium">Transaction and Holding stay together</h3>
-              <p className="mt-2 text-sm leading-7 text-secondary">Trade processing and open-position consistency change together. Keeping them in one boundary makes the database transaction direct and understandable.</p>
+              <p className="mt-2 text-sm leading-7 text-secondary">Recorded transaction handling and open-position consistency change together. Keeping them in one boundary makes the database transaction direct and understandable.</p>
             </div>
             <div className="border-t border-border py-5">
               <h3 className="font-medium">Complexity must earn its place</h3>
