@@ -4,6 +4,7 @@ import { Container } from "@/components/container";
 import { LinkButton } from "@/components/link-button";
 
 const liveDemoUrl = "https://wealthhub.nithiwut.com";
+const sourceCodeUrl = "https://github.com/nithiwut1997/wealthhub";
 
 const domainConcepts = [
   {
@@ -94,6 +95,9 @@ export default function WealthHubPage() {
             <LinkButton href={liveDemoUrl} target="_blank">
               View Live Demo <span aria-hidden="true">↗</span>
             </LinkButton>
+            <LinkButton href={sourceCodeUrl} target="_blank" variant="secondary">
+              View Source Code <span aria-hidden="true">↗</span>
+            </LinkButton>
           </div>
           <p className="mt-3 text-sm text-muted">Explore the product experience with sample investment data.</p>
         </Container>
@@ -101,11 +105,16 @@ export default function WealthHubPage() {
 
       <section className="border-b border-border bg-surface py-14 sm:py-18">
         <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <SectionIntro
-            eyebrow="01 / What I built"
-            title="More than a CRUD portfolio"
-            description="WealthHub models the relationship between investment activity, current positions, historical prices, and portfolio value. Its central concern is keeping the ledger and derived state correct as trades change a position."
-          />
+          <div>
+            <SectionIntro
+              eyebrow="01 / What I built"
+              title="More than a CRUD portfolio"
+              description="WealthHub models the relationship between investment activity, current positions, historical prices, and portfolio value. Its central concern is keeping the ledger and derived state correct as trades change a position."
+            />
+            <p className="mt-5 max-w-3xl text-sm leading-6 text-muted">
+              AI-assisted development was part of the implementation workflow; architecture, domain decisions, review, and validation remained part of my engineering process.
+            </p>
+          </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <article className="rounded-lg border border-border bg-background p-5">
               <p className="font-mono text-xs uppercase tracking-[0.08em] text-accent">Write model</p>
