@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { navItems, resume } from "@/lib/portfolio";
 
@@ -28,14 +29,14 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 text-foreground backdrop-blur-md">
       <Container className="flex min-h-16 items-center gap-4 sm:gap-6">
-        <a href="#main" className="w-fit shrink-0 py-2 text-lg font-semibold tracking-[-0.02em] transition-colors hover:text-accent" aria-label="Nithiwut Wilainuch home">
+        <Link href="/" className="w-fit shrink-0 py-2 text-lg font-semibold tracking-[-0.02em] transition-colors hover:text-accent" aria-label="Nithiwut Wilainuch home">
           Nithiwut Wilainuch<span className="text-accent">.</span>
-        </a>
+        </Link>
         <nav aria-label="Primary navigation" className="ml-auto hidden items-center gap-5 lg:flex lg:gap-7">
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`/${item.href}`}
               aria-current={activeSection === item.href ? "location" : undefined}
               className="relative inline-flex min-h-11 shrink-0 items-center text-xs text-secondary transition-colors after:absolute after:inset-x-0 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform hover:text-accent aria-[current=location]:text-accent aria-[current=location]:after:scale-x-100 lg:text-sm"
             >
